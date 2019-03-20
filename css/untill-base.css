@@ -235,6 +235,38 @@ html.main:root {
     --color-warning-300: #fef7e6;
     --color-warning-200: #fefaf1;
     --color-warning-100: #fffdf8;
+
+    /* buttons */
+
+    --color-button-primary: #01488b;
+    --color-button-primary-text: #ffffff;
+
+    --color-button-primary-hover: #000000;
+    --color-button-primary-text-hover: #ffffff;
+
+    --color-button-secondary: #ffffff;
+    --color-button-secondary-text: #01488b;
+
+    --color-button-secondary-hover: #ffffff;
+    --color-button-secondary-text-hover: #000000;
+
+    --color-button-warning: #ef8511;
+    --color-button-warning-text: #051d39;
+
+    --color-button-warning-hover: #000000;
+    --color-button-warning-text-hover: #ffffff;
+
+    --color-button-danger: #a32801;
+    --color-button-danger-text: #ffffff;
+
+    --color-button-danger-hover: #000000;
+    --color-button-danger-text-hover: #ffffff;
+
+    --color-button-success: #136a4a;
+    --color-button-success-text: #ffffff;
+
+    --color-button-success-hover: #000000;
+    --color-button-success-text-hover: #ffffff;
 }
 
 * {
@@ -424,6 +456,10 @@ i {
   font-weight: 300;
 }
 
+.form-row-label.error {
+  color: var(--color-danger-700);
+}
+
 .form-row-field {
   position: relative;
 }
@@ -483,30 +519,112 @@ i {
   height: 24pt;
 
   border: none;
-  background-color: var(--color-brand);
-  color: var(--color-brand-100);
+  background-color: var(--color-button-primary);
+  color: var(--color-button-primary-text);
 
   border-radius: 3pt;
+
+  transition: all 0.3s;
+
+  cursor: pointer;
+}
+
+.form-row-button input:hover,
+.form-row-button button:hover {
+  background-color: var(--color-button-primary-hover);
+  color: var(--color-button-primary-text-hover);
 }
 
 .form-row-button input.success, 
 .form-row-button button.success {
-  background-color: var(--color-success);
-  color: var(--color-success-100);
+  background-color: var(--color-button-success);
+  color: var(--color-button-success-text);
+}
+
+.form-row-button input.success:hover, 
+.form-row-button button.success:hover {
+  background-color: var(--color-button-success-hover);
+  color: var(--color-button-success-text-hover);
 }
 
 .form-row-button input.warning, 
 .form-row-button button.warning {
-  background-color: var(--color-warning);
-  color: var(--color-text-dark);
+  background-color: var(--color-button-danger);
+  color: var(--color-button-danger-text);
+}
+
+.form-row-button input.warning:hover, 
+.form-row-button button.warning:hover {
+  background-color: var(--color-button-danger-hover);
+  color: var(--color-button-danger-text-hover);
 }
 
 .form-row-button input.danger, 
 .form-row-button button.danger {
-  background-color: var(--color-danger);
-  color: var(--color-danger-100);
+  background-color: var(--color-button-danger);
+  color: var(--color-button-danger-text);
 }
 
+.form-row-button input.danger:hover, 
+.form-row-button button.danger:hover {
+  background-color: var(--color-button-danger-hover);
+  color: var(--color-button-danger-text-hover);
+}
+
+.form-input.error,
+.form-textarea.error {
+  color: var(--color-danger-600);
+  border-color: var(--color-danger-600);
+}
+
+/* buttons */
+
+.btn,
+.btn.primary {
+  background-color: var(--color-button-primary);
+  border-color: var(--color-button-primary);
+  color: var(--color-button-primary-text);
+
+  text-align: center;
+}
+
+.btn.bordered {
+  background-color: none;
+  border-width: 1px;
+  color: calc(border-color);
+}
+
+.btn.al {
+  text-align: left;
+}
+
+.btn.ar {
+  text-align: right;
+}
+
+.btn.secondary {
+  background-color: var(--color-button-secondary);
+  border-color: var(--color-button-secondary);
+  color: var(--color-button-secondary-text);
+}
+
+.btn.success {
+  background-color: var(--color-button-success);
+  border-color: var(--color-button-success);
+  color: var(--color-button-success-text);
+}
+
+.btn.warning {
+  background-color: var(--color-button-warning);
+  border-color: var(--color-button-warning);
+  color: var(--color-button-warning-text);
+}
+
+.btn.danger {
+  background-color: var(--color-button-danger);
+  border-color: var(--color-button-danger);
+  color: var(--color-button-danger-text);
+}
 
 /* icons */
 
