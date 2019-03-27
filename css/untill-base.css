@@ -369,6 +369,11 @@ i {
   margin: 0 auto;
 }
 
+.content-container.wide {
+  max-width: auto;
+  width: 96%;
+}
+
 .paper {
   background-color: #fff;
   box-shadow: var(--box-shadow-z-2);
