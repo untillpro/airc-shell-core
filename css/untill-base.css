@@ -370,7 +370,7 @@ i {
 }
 
 .content-container.wide {
-  max-width: auto;
+  max-width: initial;
   width: 96%;
 }
 
