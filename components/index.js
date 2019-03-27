@@ -7,7 +7,8 @@ import {
 } from './form';
 
 import {
-    Link
+    Link,
+    Button
 } from './common';
 
 export {
@@ -16,5 +17,7 @@ export {
     FormRowLabel,
     FormButton,
     FormInput,
-    Link
+    
+    Link,
+    Button
 };

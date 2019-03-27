@@ -7,7 +7,7 @@ const FormRowLabel = (props) => {
 
     return (
         <div className={cn('form-row-label', { 'error': error })}>
-            <div className="row">
+            <div className="grid row-1 col-2">
                 {label ? (
                     <div className="cell align-left">
                         <label className="form-input-label">{label}</label>
