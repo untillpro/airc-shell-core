@@ -2,10 +2,10 @@
 class API {
     static init() {
         console.log('API.init();');
-        
+
         if (iframeApi && typeof iframeApi === 'function') {
             iframeApi({}).then(function (api) {
-                console.log(` --- ${window.location.href} --- `);
+                console.log(` --- ${window.location} --- `);
                 api.changePath(window.location.href);
             });
         } else {
