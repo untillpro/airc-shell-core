@@ -1151,3 +1151,30 @@ i {
 .card-text {
   margin-top: 16px;
 }
+
+/* content */
+
+.content {
+  font-size: 14pt;
+  color: var(--color-text-medium);
+  line-height: 1.4
+}
+
+.content p {
+  margin-bottom: 20pt;
+}
+
+.content p:last-of-type {
+  margin-bottom: 0;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: var(--color-text-dark);
+  margin-bottom: 20pt;
+  font-weight: 400;
+}
