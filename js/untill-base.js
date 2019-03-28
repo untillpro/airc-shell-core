@@ -10,7 +10,22 @@ const initPassViewToggler = () => {
     })
 };
 
+const initAPI = () => {
+    var api = {
+      location: function () {
+        return window.location;
+      }
+    };
+    
+    if (iframeApi && typeof iframeApi === 'function') {
+        iframeApi(api).then(function () {
+            console.log('API loaded');
+        });
+    }
+    
+};
 
 $(() => {
+    initAPI();
     initPassViewToggler(); //init form password input toggler
 });
