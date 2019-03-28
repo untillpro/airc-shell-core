@@ -196,6 +196,8 @@ table {
 
 
 html.main:root {
+    --color-bg: #F5F8FA;
+
     --color-brand: #0277e7;
     --color-brand-dark: #025fb9;
     --color-info: #0277e7;
@@ -372,6 +374,10 @@ i {
 .content-container.wide {
   max-width: initial;
   width: 96%;
+}
+
+.content-block {
+  margin: 32px 0px;
 }
 
 .paper {
@@ -1081,4 +1087,67 @@ i {
 }
 .icon-zoom-out:before {
   content: "\e93a";
+}
+
+/* card */
+
+.card {
+  background-color: #fff;
+  box-shadow: var(--box-shadow-z-2);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+.card.align-left {
+  text-align: left;
+  justify-content: flex-start;
+}
+.card.align-center {
+  text-align: center;
+  justify-content: center;
+}
+.card.align-right {
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.card.valign-top {
+  align-items: flex-start;
+}
+.card.valign-center {
+  align-items: center;
+}
+.card.valign-bottom {
+  align-items: flex-end;
+}
+
+.card-icon {
+  background-color: var(--color-bg);
+  width: 80px;
+  height: 80px;
+
+  border-radius: 40px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.card-icon img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.card-title {
+  margin-top: 16px;
+}
+
+.card-text {
+  margin-top: 16px;
 }

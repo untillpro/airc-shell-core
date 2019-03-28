@@ -47,7 +47,7 @@ class FormInput extends Component {
     }
 
     renderInput() {
-        const { type, error, value } = this.props;
+        const { type, error } = this.props;
         const { showPass } = this.state;
 
         let t = type || 'text';
@@ -64,7 +64,6 @@ class FormInput extends Component {
                     {...(this.props.input ? this.props.input : {})}
                     className={cn('form-input', { 'error': error })} 
                     type={t}
-                    //value={'*'.repeat(value.length || 0)}
                 />
 
                 {this.renderToggler()}
