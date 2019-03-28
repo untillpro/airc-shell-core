@@ -1092,7 +1092,10 @@ i {
 
 .card {
   background-color: #fff;
+  
   box-shadow: var(--box-shadow-z-2);
+  border-radius: var(--border-radius-small);
+
   border-radius: 10px;
   box-sizing: border-box;
   padding: 20px;
