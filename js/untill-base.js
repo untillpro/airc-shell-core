@@ -11,18 +11,14 @@ const initPassViewToggler = () => {
 };
 
 const initAPI = () => {
-    var api = {
-      location: function () {
-        return window.location;
-      }
-    };
-    
     if (iframeApi && typeof iframeApi === 'function') {
-        iframeApi(api).then(function () {
+        iframeApi({}).then(function (api) {
             console.log('API loaded');
+            console.log(api);
+
+            console.log(window.location);
         });
     }
-    
 };
 
 $(() => {
