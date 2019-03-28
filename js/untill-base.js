@@ -13,10 +13,7 @@ const initPassViewToggler = () => {
 const initAPI = () => {
     if (iframeApi && typeof iframeApi === 'function') {
         iframeApi({}).then(function (api) {
-            console.log('API loaded');
-            console.log(api);
-
-            console.log(window.location);
+            api.changePath(window.location.href);
         });
     }
 };
