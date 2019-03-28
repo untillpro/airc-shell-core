@@ -1100,28 +1100,29 @@ i {
 
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 }
 .card.align-left {
   text-align: left;
-  justify-content: flex-start;
+  align-items: flex-start;
 }
 .card.align-center {
   text-align: center;
-  justify-content: center;
+  align-items: center;
 }
 .card.align-right {
   text-align: right;
-  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .card.valign-top {
-  align-items: flex-start;
+  justify-content: flex-start;
 }
 .card.valign-center {
-  align-items: center;
+  justify-content: center;
 }
 .card.valign-bottom {
-  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .card-icon {
