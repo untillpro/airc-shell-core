@@ -10,6 +10,8 @@ class UShellAPIGate {
             iframeApi({
                 dispatch: (action) => { this.dispatch(action) }
             }).then(function (api) {
+                console.log('iframeApi loaded in plugin');
+                console.log(api);
                 this.api = api;
 
                 if (api.onModuleLoad) {
