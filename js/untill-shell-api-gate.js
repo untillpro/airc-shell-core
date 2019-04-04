@@ -92,4 +92,4 @@ class UShellAPIGate {
     }
 }
 
-window.UApi = new UShellAPIGate().init();
+window.UApi = new UShellAPIGate().init(iframeApi);
