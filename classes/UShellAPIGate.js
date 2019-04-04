@@ -5,9 +5,9 @@ class UShellAPIGate {
         this.dispatch = dispatch; // dispatch function
     }
 
-    init(iframeApi) {
+    async init(iframeApi) {
         if (iframeApi && typeof iframeApi === 'function') {
-            iframeApi({
+            return iframeApi({
                 dispatch: (action) => { this.dispatch(action) }
             }).then(function (api) {
                 this.api = api;
@@ -89,3 +89,5 @@ class UShellAPIGate {
         }
     }
 }
+
+export default UShellAPIGate;

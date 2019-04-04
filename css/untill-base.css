@@ -165,7 +165,6 @@ time, mark, audio, video {
 	border: 0;
 	vertical-align: baseline;
   box-sizing: border-box;
-  max-width: 100%;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
