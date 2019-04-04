@@ -91,3 +91,5 @@ class UShellAPIGate {
         }
     }
 }
+
+global.UApi = new UShellAPIGate().init();
