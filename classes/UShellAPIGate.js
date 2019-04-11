@@ -2,14 +2,14 @@
 class UShellAPIGate {
     constructor(dispatch = null) {
         this.api = null;
-        this.dispatch = dispatch; // dispatch function
+        this.dispatchFunc = dispatch; // dispatch function
     }
 
     async init(iframeApi) {
         if (iframeApi && typeof iframeApi === 'function') {
             return iframeApi({
                 dispatch: (action) => { this.dispatch(action) }
-            }).then(function (api) {
+            }).then((api) => {
                 this.api = api;
 
                 if (api.onModuleLoad) {
@@ -22,8 +22,8 @@ class UShellAPIGate {
     }
 
     async dispatch(action) {
-        if (this.dispatch && typeof this.dispatch === 'function') {
-            this.dispatch(action);
+        if (this.dispatchFunc && typeof this.dispatchFunc === 'function') {
+            return this.dispatchFunc(action);
         }
     }
     

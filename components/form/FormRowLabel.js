@@ -1,6 +1,5 @@
 import React from 'react';
-
-var cn = require('classnames');
+import cn from 'classnames';
 
 const FormRowLabel = (props) => {
     const { label, tip, error } = props;

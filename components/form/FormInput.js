@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-
+import cn from 'classnames';
 import FormRowLabel from './FormRowLabel';
 
-var cn = require('classnames');
+
 
 class FormInput extends Component {
     constructor() {
