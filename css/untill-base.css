@@ -737,8 +737,9 @@ input[type='checkbox']:checked {
 /* buttons */
 
 .btn {
-  display: inline-block;
-  line-height: 24pt;
+  display: inline-flex;
+  vertical-align: middle;
+  height: 24pt;
   border-radius: var(--border-radius-medium);
   padding: 0px 12pt;
 
@@ -748,6 +749,13 @@ input[type='checkbox']:checked {
 
   border: 1px solid var(--color-light-500);
   color: var(--color-text-dark);
+
+  box-sizing: border-box;
+
+  justify-content: center;
+  align-items:center;
+
+  user-select: none;
 }
 
 .btn.full {
@@ -858,6 +866,73 @@ input[type='checkbox']:checked {
   margin-right: 15pt;
 }
 
+.btn.icon {
+  padding: 0;
+  height: 24pt;
+
+  box-sizing: border-box;
+
+  text-align: center;
+  padding: 0px 8pt;
+}
+
+.btn.icon i + span {
+  margin-left: 6pt;
+}
+
+.btn.disabled {
+  cursor: default;
+  background-color: var(--color-light-500);
+  border-color: var(--color-light-300);
+  color: var(--color-text-dark);
+
+  opacity: 0.5;
+}
+
+/* icon button */
+
+.icon-btn {
+  padding: 2pt;
+  display: inline-block;
+
+  font-size: 14pt;
+  line-height: 1;
+
+  color: var(--color-text-dark);
+  margin: 0pt 2pt;
+
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  opacity: 0.6;
+}
+
+.icon-btn.primary {
+  color: var(--color-button-primary);
+}
+
+.icon-btn.secondary {
+  color: var(--color-button-secondary);
+}
+
+.icon-btn.success {
+  color: var(--color-button-success);
+}
+
+.icon-btn.warning {
+  color: var(--color-button-warning);
+}
+
+.icon-btn.danger {
+  color: var(--color-button-danger);
+} 
+
+.icon-btn.disabled {
+  color: var(--color-text-disabled);
+  cursor: default;
+}
+
 /* toggler */
 
 .toggler {
@@ -925,6 +1000,8 @@ input[type='checkbox']:checked {
 .active-toggler {
   display: inline-block;
   cursor: pointer;
+
+  user-select: none;
 }
 
 .active-toggler i {
@@ -1380,9 +1457,18 @@ input[type='checkbox']:checked {
 .untill-base-table-header {
   padding: 10px;
   line-height: 30px;
+
+  display: flex;
+  flex-direction: row;
 }
 
+.untill-base-table-header-togglers {
+  flex: 1
+}
 
+.untill-base-table-header-actions {
+
+}
 /* context-menu */
 
 .context-menu {
