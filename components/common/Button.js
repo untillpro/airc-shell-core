@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Button extends Component {
     handleClick(event) {
         const { onClick, disabled } = this.props;
 
-        if(!onClick || disabled) return false;
+        if (!onClick || disabled) return false;
 
         onClick(event);
     }
@@ -12,15 +13,15 @@ class Button extends Component {
     getClass() {
         let c = '';
 
-        if (this.props.full) c +='full ';
-        if (this.props.bordered) c +='bordered ';
-        if (this.props.primary) c +='primary ';
-        if (this.props.secondary) c +='secondary ';
-        if (this.props.success) c +='success ';
-        if (this.props.warning) c +='warning ';
-        if (this.props.danger) c +='danger ';
-        if (this.props.icon) c +='icon ';
-        if (this.props.disabled) c +='disabled ';
+        if (this.props.full) c += 'full ';
+        if (this.props.bordered) c += 'bordered ';
+        if (this.props.primary) c += 'primary ';
+        if (this.props.secondary) c += 'secondary ';
+        if (this.props.success) c += 'success ';
+        if (this.props.warning) c += 'warning ';
+        if (this.props.danger) c += 'danger ';
+        if (this.props.icon) c += 'icon ';
+        if (this.props.disabled) c += 'disabled ';
 
         return c;
     }
@@ -36,9 +37,9 @@ class Button extends Component {
     }
     
     render() {
-        const { isLink, link, icon } = this.props;
+        const { link, icon } = this.props;
 
-        if (isLink) {
+        if (link) {
             return (
                 <a 
                     href={link}
@@ -65,8 +66,26 @@ class Button extends Component {
                 {this.renderText()}
             </div>
         );
-
     }
 }
+
+Button.propTypes = {
+    className: PropTypes.string,
+    title: PropTypes.string,
+    tabIndex: PropTypes.number,
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    full: PropTypes.bool,
+    bordered: PropTypes.bool,
+    primary: PropTypes.bool,
+    secondary: PropTypes.bool,
+    success: PropTypes.bool,
+    warning: PropTypes.bool,
+    danger: PropTypes.bool,
+    icon: PropTypes.string,
+    text:  PropTypes.string,
+    children: PropTypes.node,
+    link:  PropTypes.string
+};
 
 export default Button;

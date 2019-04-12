@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 class FormButton extends Component {
     render() {
         const { text, submit } = this.props;
+
         return (
-            <div className="form-row-button">
+            <div className='form-row-button'>
                 <button
                     type={submit ? 'submit' : 'button'}
                     {...(this.props.input ? this.props.input : {})}
@@ -17,5 +19,11 @@ class FormButton extends Component {
         );
     }
 }
+
+FormButton.propTypes = {
+    text: PropTypes.string,
+    submit: PropTypes.bool,
+    input: PropTypes.node
+};
 
 export default FormButton;

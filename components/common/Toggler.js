@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 class ActiveToggler extends Component {
     render() {
-        let { id, right } = this.props;
+        const { right } = this.props;
+        
+        let { id } = this.props;
 
-        if (!id) id = "activeToggler";
+        if (!id) id = 'activeToggler';
 
         return (
             <Fragment>
@@ -13,8 +16,8 @@ class ActiveToggler extends Component {
                     className={`toggler ${ right ? 'right' : ''}`}
                     checked={this.props.checked}
                     onChange={(evt) => this.props.onChange(evt)}
-                    type="checkbox"
-                    value="true"
+                    type='checkbox'
+                    value='true'
                 />
 
                 <label
@@ -30,5 +33,13 @@ class ActiveToggler extends Component {
         );
     }
 }
+
+ActiveToggler.propTypes = {
+    id: PropTypes.string,
+    right: PropTypes.bool,
+    checked: PropTypes.bool,
+    label: PropTypes.string,
+    onChange: PropTypes.func
+};
 
 export default ActiveToggler;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Card extends Component {
     getAlign() {
@@ -6,9 +7,9 @@ class Card extends Component {
 
         if (align) {
             switch (align) {
-                case "left": return 'align-left';
-                case "right": return 'align-right';
-                case "center": return 'align-center';
+                case 'left': return 'align-left';
+                case 'right': return 'align-right';
+                case 'center': return 'align-center';
 
                 default: return '';
             }
@@ -22,9 +23,9 @@ class Card extends Component {
 
         if (valign) {
             switch (valign) {
-                case "top": return 'align-top';
-                case "bottom": return 'align-bottom';
-                case "center": return 'align-center';
+                case 'top': return 'align-top';
+                case 'bottom': return 'align-bottom';
+                case 'center': return 'align-center';
 
                 default: return '';
             }
@@ -36,9 +37,9 @@ class Card extends Component {
     getType() {
         const { type } = this.props;
 
-        if (type && typeof type === 'string') {
+        if (type) {
             switch (type.toLowerCase()) {
-                case "small": return 'small';
+                case 'small': return 'small';
                 default: return '';
             }
         }
@@ -51,8 +52,11 @@ class Card extends Component {
 
         if (ico) {
             return (
-                <div className="card-icon">
-                    <img src={ico} alt={title || ''}/>
+                <div className='card-icon'>
+                    <img 
+                        src={ico} 
+                        alt={title || ''}
+                    />
                 </div>
             );
         }
@@ -65,7 +69,7 @@ class Card extends Component {
         
         if (title) {
             return (
-                <div className="card-title">
+                <div className='card-title'>
                     {title}
                 </div>
             );
@@ -79,7 +83,7 @@ class Card extends Component {
         
         if (text) {
             return (
-                <div className="card-text">
+                <div className='card-text'>
                     {text}
                 </div>
             );
@@ -91,7 +95,14 @@ class Card extends Component {
     render() {
         return (
             <div 
-                className={`card ${this.getAlign()}  ${this.getValign()} ${this.props.onClick ? 'hoverable' : ''} ${this.getType()}`}
+                className={
+                    `
+                        card 
+                        ${this.getAlign()}  
+                        ${this.getValign()} 
+                        ${this.props.onClick ? 'hoverable' : ''} ${this.getType()}
+                    `
+                }
                 onClick={this.props.onClick || null}
             >
                 {this.renderIcon()}
@@ -101,5 +112,15 @@ class Card extends Component {
         );
     }
 }
+
+Card.propTypes = {
+    align: PropTypes.string,
+    valign: PropTypes.string,
+    text: PropTypes.string,
+    title: PropTypes.string,
+    type: PropTypes.string,
+    onClick: PropTypes.func,
+    ico: PropTypes.string
+};
 
 export default Card;

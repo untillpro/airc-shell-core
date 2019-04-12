@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class IconButton extends Component {
     handleClick(event) {
         const { onClick, disabled } = this.props;
 
-        if(!onClick || disabled) return false;
+        if (!onClick || disabled) return false;
 
         onClick(event);
     }
@@ -12,12 +14,12 @@ class IconButton extends Component {
     getClass() {
         let c = '';
 
-        if (this.props.primary) c +='primary ';
-        if (this.props.secondary) c +='secondary ';
-        if (this.props.success) c +='success ';
-        if (this.props.warning) c +='warning ';
-        if (this.props.danger) c +='danger ';
-        if (this.props.disabled) c +='disabled ';
+        if (this.props.primary) c += 'primary ';
+        if (this.props.secondary) c += 'secondary ';
+        if (this.props.success) c += 'success ';
+        if (this.props.warning) c += 'warning ';
+        if (this.props.danger) c += 'danger ';
+        if (this.props.disabled) c += 'disabled ';
 
         return c;
     }
@@ -25,13 +27,18 @@ class IconButton extends Component {
     getIcon() {
         const { icon, title } = this.props;
 
-        return <img src={icon} alt={title} />;
+        return (
+            <img 
+                src={icon} 
+                alt={title} 
+            />
+        );
     }
 
     render() {
-        const { isLink, link } = this.props;
+        const { link } = this.props;
 
-        if (isLink) {
+        if (link) {
             return (
                 <a 
                     href={link}
@@ -55,8 +62,26 @@ class IconButton extends Component {
                 {this.getIcon()}
             </div>
         );
-
     }
 }
+
+IconButton.propTypes = {
+    className: PropTypes.string,
+    title: PropTypes.string,
+    tabIndex: PropTypes.number,
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    full: PropTypes.bool,
+    bordered: PropTypes.bool,
+    primary: PropTypes.bool,
+    secondary: PropTypes.bool,
+    success: PropTypes.bool,
+    warning: PropTypes.bool,
+    danger: PropTypes.bool,
+    icon: PropTypes.string,
+    text:  PropTypes.string,
+    children: PropTypes.node,
+    link:  PropTypes.string
+};
 
 export default IconButton;

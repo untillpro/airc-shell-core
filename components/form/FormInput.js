@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import FormRowLabel from './FormRowLabel';
-
-
 
 class FormInput extends Component {
     constructor() {
@@ -23,7 +22,13 @@ class FormInput extends Component {
         const { label, tip, error } = this.props;
 
         if (label || tip) {
-            return <FormRowLabel label={label} tip={tip} error={error} />
+            return (
+                <FormRowLabel 
+                    label={label} 
+                    tip={tip} 
+                    error={error} 
+                />
+            );
         }
 
         return null;
@@ -35,10 +40,10 @@ class FormInput extends Component {
         if (type === 'password' && showToggler) {
             return (
                 <div 
-                    className="form-row-field-pass-tgl"
+                    className='form-row-field-pass-tgl'
                     onClick={this.toggleShowPass.bind(this)}
                 >
-                    <i className="icon-eye-solid" />
+                    <i className='icon-eye-solid' />
                 </div>
             );
         }
@@ -59,10 +64,10 @@ class FormInput extends Component {
         }
 
         return (
-            <div className="form-row-field">
+            <div className='form-row-field'>
                 <input 
                     {...(this.props.input ? this.props.input : {})}
-                    className={cn('form-input', { 'error': error })} 
+                    className={cn('form-input', { error })} 
                     type={t}
                 />
 
@@ -80,5 +85,14 @@ class FormInput extends Component {
         );
     }
 }
+
+FormInput.propTypes = {
+    label: PropTypes.string,
+    tip: PropTypes.node,
+    error: PropTypes.bool,
+    type: PropTypes.string,
+    showToggler: PropTypes.bool,
+    input: PropTypes.object
+};
 
 export default FormInput;

@@ -8,7 +8,9 @@ class UShellAPIGate {
     async init(iframeApi) {
         if (iframeApi && typeof iframeApi === 'function') {
             return iframeApi({
-                dispatch: (action) => { this.dispatch(action) }
+                dispatch: (action) => {
+                    this.dispatch(action);
+                }
             }).then((api) => {
                 this.api = api;
 
@@ -16,9 +18,8 @@ class UShellAPIGate {
                     api.onModuleLoad();
                 }
             });
-        } else {
-            throw new Error('Ushell API error: iframeApi is not defined!');
         }
+        throw new Error('Ushell API error: iframeApi is not defined!');
     }
 
     async dispatch(action) {
@@ -26,7 +27,6 @@ class UShellAPIGate {
             return this.dispatchFunc(action);
         }
     }
-    
 
     async do(queueId, path, params) {
         if (this.api) {
@@ -38,7 +38,6 @@ class UShellAPIGate {
         } else {
             throw new Error('Remote api not available.');
         }
-
     }
 
     async sendError(text = null, descr = null, lifetime = 10, hideClose = false) {

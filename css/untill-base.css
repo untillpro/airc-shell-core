@@ -369,6 +369,10 @@ i {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.page-content {
+  padding: 20px 0px;
+}
+
 .content-container {
   max-width: 1024px;
   width: 90%;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Grid extends Component {
-    getGap () {
+    getGap() {
         switch (this.props.gap) {
             case 32: return 'gap-32';
             case 24: return 'gap-24';
@@ -11,21 +12,31 @@ class Grid extends Component {
         }
     }
 
-    render () {
+    render() {
         return (
-            <div className={
-                `
-                    grid 
-                    ${this.props.rows > 0 ? `row-${this.props.rows}`: ''} 
-                    ${this.props.cols > 0 ? `col-${this.props.cols}`: 'col-3'}
-                    ${this.getGap()}
+            <div 
+                className={
+                    `
+                        grid 
+                        ${this.props.rows > 0 ? `row-${this.props.rows}` : ''} 
+                        ${this.props.cols > 0 ? `col-${this.props.cols}` : 'col-3'}
+                        ${this.getGap()}
 
-                `
-            }>
+                    `
+                }
+            >
                 {this.props.children}
             </div>
         );
     }
 }
+
+Grid.propTypes = {
+    rows: PropTypes.number,
+    cols: PropTypes.number,
+    gap: PropTypes.number,
+    children: PropTypes.node
+
+};
 
 export default Grid;
