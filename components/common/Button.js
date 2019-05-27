@@ -20,6 +20,7 @@ class Button extends Component {
         if (this.props.success) c += 'success ';
         if (this.props.warning) c += 'warning ';
         if (this.props.danger) c += 'danger ';
+        if (this.props.white) c += 'white ';
         if (this.props.icon) c += 'icon ';
         if (this.props.disabled) c += 'disabled ';
 
@@ -37,7 +38,7 @@ class Button extends Component {
     }
     
     render() {
-        const { link, icon } = this.props;
+        const { link, icon, iconAlign } = this.props;
 
         if (link) {
             return (
@@ -48,22 +49,27 @@ class Button extends Component {
                     onClick={(event) => this.handleClick(event)}
                     tabIndex={this.props.tabIndex || 1}
                 >
-                    { icon ? <i className={icon} /> : null }
+                    { icon && iconAlign !== 'right' ? <i className={`${icon}`} /> : null }
 
                     {this.renderText()}
+
+                    { icon && iconAlign === 'right' ? <i className={`${icon} right-icon`} /> : null }
                 </a>
             );
         }
 
         return (
             <div
-                className={`btn ${this.getClass()} ${this.props.className}`}
+                className={`btn ${this.getClass()} ${this.props.className || ''}`}
                 title={this.props.title || ''}
                 onClick={(event) => this.handleClick(event)}
                 tabIndex={this.props.tabIndex || 1}
             >
-                { icon ? <i className={icon} /> : null }
+                { icon && iconAlign !== 'right' ? <i className={`${icon}`} /> : null }
+
                 {this.renderText()}
+
+                { icon && iconAlign === 'right' ? <i className={`${icon} right-icon`} /> : null }
             </div>
         );
     }

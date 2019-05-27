@@ -1,40 +1,63 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Switch } from 'antd';
 
-class ActiveToggler extends Component {
+class Toggler extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            checked: false
+        };
+    }
+
+    componentDidMount() {
+        const { checked } = this.props;
+
+        this.setState({
+            checked: !!checked
+        });
+    }
+
+    componentWillReceiveProps(newProps) {
+        const { checked } = newProps;
+
+        if (this.state.checked !== checked) {
+            this.setState({ checked });
+        }
+    }
+
+    handleClick() {
+        const { onChange } = this.props;
+        const { checked } = this.state;
+
+        if (onChange) {
+            onChange(!checked);
+        }
+
+        this.setState({ checked: !checked });
+    }
+
     render() {
-        const { right } = this.props;
-        
-        let { id } = this.props;
-
-        if (!id) id = 'activeToggler';
+        const { checked } = this.state;
+        const { right, size } = this.props;
 
         return (
-            <Fragment>
-                <input 
-                    id={id}
-                    className={`toggler ${ right ? 'right' : ''}`}
-                    checked={this.props.checked}
-                    onChange={(evt) => this.props.onChange(evt)}
-                    type='checkbox'
-                    value='true'
-                />
+            <div 
+                className={`toggler ${ right ? 'right' : ''}`}
+                onClick={this.handleClick.bind(this)}
+            >
+                {right ? (<label>{this.props.label}</label>) : null}
 
-                <label
-                    htmlFor={id}
-                >
-                    { !right ? (<i />) : null}
-                    
-                    {this.props.label}
-                    
-                    { right ? (<i />) : null}
-                </label>
-            </Fragment>
+                <Switch checked={checked} size={size || 'small'} />
+
+                {!right ? (<label>{this.props.label}</label>) : null}
+            </div>
         );
     }
 }
 
-ActiveToggler.propTypes = {
+Toggler.propTypes = {
     id: PropTypes.string,
     right: PropTypes.bool,
     checked: PropTypes.bool,
@@ -42,4 +65,4 @@ ActiveToggler.propTypes = {
     onChange: PropTypes.func
 };
 
-export default ActiveToggler;
+export default Toggler;
