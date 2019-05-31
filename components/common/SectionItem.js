@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TabItem extends Component {
+class SectionItem extends Component {
     render() {
         const { active, text, children, onClick, error } = this.props;
         
@@ -15,4 +15,4 @@ class TabItem extends Component {
     }
 }
 
-export default TabItem;
+export default SectionItem;

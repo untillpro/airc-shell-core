@@ -1,5 +1,6 @@
 import Link from './Link';
 import Button from './Button';
+import StyledButton from './StyledButton';
 import IconButton from './IconButton';
 import Card from './Card';
 import Grid from './Grid';
@@ -8,8 +9,8 @@ import Table from './Table';
 import Toggler from './Toggler';
 import ActiveToggler from './ActiveToggler';
 import Search from './Search';
-import Tabs from './Tabs';
-import TabItem from './TabItem';
+import Sections from './Sections';
+import SectionItem from './SectionItem';
 import ConfirmModal from './ConfirmModal';
 import Label from './Label';
 import TextInput from './TextInput';
@@ -21,10 +22,13 @@ import Select from './Select';
 import ColorPicker from './ColorPicker';
 import DatePicker from './DatePicker';
 import FieldError from './FieldError';
+import Icon from './Icon';
+import Popover from './Popover';
 
 export {
     Link,
     Button,
+    StyledButton,
     IconButton,
     Grid,
     Card,
@@ -33,8 +37,8 @@ export {
     Toggler,
     ActiveToggler,
     Search,
-    Tabs,
-    TabItem,
+    Sections,
+    SectionItem,
     ConfirmModal,
     TextInput,
     NumberInput,
@@ -45,5 +49,7 @@ export {
     Select,
     ColorPicker,
     DatePicker,
-    FieldError
+    FieldError,
+    Icon,
+    Popover
 };

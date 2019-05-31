@@ -433,7 +433,7 @@ i {
 
 .paper {
   background-color: #fff;
-  box-shadow: var(--box-shadow-z-1);
+  /* box-shadow: var(--box-shadow-z-1); */
   border-radius: var(--border-radius-medium);
 }
 
@@ -523,6 +523,7 @@ i {
 .page-section-field {
   display: inline-block;
   vertical-align: top;
+  min-width: 100%;
 }
 
 .page-section-field.no-label {
@@ -1207,11 +1208,11 @@ input[type='checkbox']:checked {
 /* icon button */
 
 .icon-btn {
-  padding: 2pt;
+  padding: 0pt 2pt;
   display: inline-block;
 
   font-size: 14pt;
-  line-height: 1;
+  line-height: 6pt;
 
   color: var(--color-text-dark);
   margin: 0pt 2pt;
@@ -1505,7 +1506,43 @@ input[type='checkbox']:checked {
   line-height: 1.4;
 }
 
+/* embeded selector field */
+
+.embedded-selector-field {
+
+}
+
+.embedded-selector-field input {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* embedded field */
+
+.embedded-manager-field {
+  width: 100%;
+  flex: 1;
+  font-size: 10pt;
+}
+
+.embedded-manager-field-header {
+  margin-bottom: 10pt;
+}
+
+.embedded-manager-field-header h2, 
+.embedded-manager-field-header h3 {
+  font-size: 14pt;
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px;
+}
+
+
 /* card */
+
+
 
 .card {
   background-color: #fff;
@@ -1775,6 +1812,17 @@ input[type='checkbox']:checked {
   -ms-flex-direction: column;
   flex-direction: column;
   
+
+  width: 100%;
+}
+
+.ReactTable.disabled {
+  opacity: 0.7;
+  filter: grayscale(100%);
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
 }
 
 .ReactTable * {
@@ -1797,7 +1845,13 @@ input[type='checkbox']:checked {
   align-items: stretch;
   width: 100%;
   border-collapse: collapse;
-  overflow: auto
+  overflow: auto;
+
+  border-left: 1px solid var(--color-light-300);
+  border-right: 1px solid var(--color-light-300);
+  border-bottom: 1px solid var(--color-light-300);
+
+  margin-bottom: 20px;
 }
 
 .ReactTable .rt-thead {
@@ -1843,7 +1897,7 @@ input[type='checkbox']:checked {
 }
 
 .ReactTable .rt-thead.-header {
-  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15)
+  box-shadow: var(--box-shadow-z-1);
 }
 
 .ReactTable .rt-thead .rt-tr {

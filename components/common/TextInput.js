@@ -54,7 +54,7 @@ class TextInput extends Component {
         } else if (t === 'textarea') {
             InputComponent = Input.TextArea;
         }
-        console.log(this.props);
+
         return (
             <InputComponent 
                 className={cn('form-input', { error })} 

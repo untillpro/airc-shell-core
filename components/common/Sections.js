@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 
-import TabItem from './TabItem';
+import SectionItem from './SectionItem';
 
-class Tabs extends Component {
+class Sections extends Component {
     handleClick(data, index, event) {
         const { onClick } = this.props;
 
@@ -18,7 +18,7 @@ class Tabs extends Component {
         if (!data) return null;
         
         return (
-            <TabItem 
+            <SectionItem 
                 key={`tab_${index}`}
                 active={Boolean(data.active)} 
                 text={data.text || ''} 
@@ -53,4 +53,4 @@ class Tabs extends Component {
     }
 }
 
-export default Tabs;
+export default Sections;

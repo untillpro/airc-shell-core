@@ -2,8 +2,6 @@ import React from 'react';
 import conv from 'color-shorthand-hex-to-six-digit';
 
 const ColorPreview = (props) => {
-    console.log(`#${props.color}`);
-    console.log(conv(`#${props.color}`));
     return (
         <div 
             className={`

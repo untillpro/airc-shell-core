@@ -47,10 +47,9 @@ class ConfirmModal extends Component {
         if (rejectText && onReject && typeof onReject === 'function') {
             buttons.push(
                 <Button 
-                    className="ml"
                     text={rejectText}
                     onClick={onReject}
-                    primary
+                    type="primary"
                 />
             );
         }

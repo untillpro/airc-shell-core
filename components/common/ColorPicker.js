@@ -17,8 +17,6 @@ import {
 
 class ColorPicker extends Component {
     handleChange(value) {
-        console.log('ColorPicker', value);
-
         const { onChange } = this.props;
 
         if (onChange && typeof onChange === 'function') {
