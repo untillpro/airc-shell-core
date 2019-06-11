@@ -28,10 +28,10 @@ class UShellAPIGate {
         }
     }
 
-    async do(queueId, path, params) {
+    async do(queueId, path, params, method = 'get') {
         if (this.api) {
             if (this.api.do && typeof this.api.do === 'function') {
-                return this.api.do(queueId, path, params);
+                return this.api.do(queueId, path, params, method);
             } 
 
             throw new Error('Remote method api.do() not available.');

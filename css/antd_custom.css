@@ -1,0 +1,54 @@
+.ant-input-number-handler-wrap {
+    opacity: 1;
+}
+
+.ant-input-number {
+    width: 100%;
+}
+
+.error .ant-select,
+.error .ant-select-selection, 
+.error .ant-input {
+    border-color: var(--color-danger-600);
+}
+
+.ant-radio-wrapper {
+    white-space: normal;
+}
+
+.form-row-field .form-input,
+.form-row-field .ant-select {
+    flex: 1;
+}
+
+.header-actions .ant-btn {
+    margin-left: 8px;
+}
+
+.header-navigation .ant-btn {
+    margin-left: 8px;
+}
+
+.ant-btn-primary {
+    background-color: var(--color-button-primary);
+    border-color: var(--color-button-primary);
+}
+
+.confirm-modal-buttons .ant-btn,
+.page-section-content-buttons .ant-btn {
+    margin-left: 12px;
+}
+
+.edit-form-modal .ant-modal-body {
+    padding: 50px 20px 0px 20px;
+}
+
+.edit-form-modal .ant-modal-close-x {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.page-section-content-fields-group .ant-tabs {
+    grid-column: span 6;
+}
