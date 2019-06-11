@@ -90,4 +90,9 @@ class UShellAPIGate {
     }
 }
 
-window.UApi = new UShellAPIGate().init(iframeApi);
+if (typeof module != "undefined" && module.exports) {
+    module.exports = new UShellAPIGate();
+} else {
+    window.UApi = (api) => new UShellAPIGate().init(api); //????? TODO RIGHT
+}
+  
