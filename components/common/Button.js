@@ -1,49 +1,29 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
-    getClass() {
-        let c = '';
+import { Button } from 'antd';
 
-        if (this.props.full) c +='full ';
-        if (this.props.bordered) c +='bordered ';
-        if (this.props.primary) c +='primary ';
-        if (this.props.secondary) c +='secondary ';
-        if (this.props.success) c +='success ';
-        if (this.props.warning) c +='warning ';
-        if (this.props.danger) c +='danger ';
+class BaseButton extends Component {
+    handleClick(event) {
+        const { onClick, disabled } = this.props;
 
-        return c;
+        if (!onClick || disabled) return false;
+
+        onClick(event);
     }
-    
-    render() {
-        const { isLink, link } = this.props;
 
-        if (isLink) {
-            return (
-                <a 
-                    href={link}
-                    className={`btn ${this.getClass()}  ${this.props.className}`}
-                    title={this.props.title || ''}
-                    onClick={this.props.onClick || null}
-                    tabIndex={this.props.tabIndex || 1}
-                >
-                    {this.props.text || this.props.children}
-                </a>
-            );
-        }
+    render() {
+        const { text, children } = this.props;
 
         return (
-            <div
-                className={`btn ${this.getClass()} ${this.props.className}`}
-                title={this.props.title || ''}
-                onClick={this.props.onClick || null}
-                tabIndex={this.props.tabIndex || 1}
-            >
-                {this.props.text || this.props.children}
-            </div>
-        );
+            <Button 
+                {...this.props}
+                onClick={(event) => this.handleClick(event)}
 
+            >
+                {text || children}
+            </Button>
+        );
     }
 }
 
-export default Button;
+export default BaseButton;

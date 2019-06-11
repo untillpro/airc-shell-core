@@ -2,31 +2,31 @@
 class UShellAPIGate {
     constructor(dispatch = null) {
         this.api = null;
-        this.dispatch = dispatch; // dispatch function
+        this.dispatchFunc = dispatch; // dispatch function
     }
 
     async init(iframeApi) {
         if (iframeApi && typeof iframeApi === 'function') {
             return iframeApi({
-                dispatch: (action) => { this.dispatch(action) }
-            }).then(function (api) {
+                dispatch: (action) => {
+                    this.dispatch(action);
+                }
+            }).then((api) => {
                 this.api = api;
 
                 if (api.onModuleLoad) {
                     api.onModuleLoad();
                 }
             });
-        } else {
-            throw new Error('Ushell API error: iframeApi is not defined!');
         }
+        throw new Error('Ushell API error: iframeApi is not defined!');
     }
 
     async dispatch(action) {
-        if (this.dispatch && typeof this.dispatch === 'function') {
-            this.dispatch(action);
+        if (this.dispatchFunc && typeof this.dispatchFunc === 'function') {
+            return this.dispatchFunc(action);
         }
     }
-    
 
     async do(queueId, path, params) {
         if (this.api) {
@@ -38,7 +38,6 @@ class UShellAPIGate {
         } else {
             throw new Error('Remote api not available.');
         }
-
     }
 
     async sendError(text = null, descr = null, lifetime = 10, hideClose = false) {

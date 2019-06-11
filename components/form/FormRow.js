@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 const FormRow = (props) => {
     return (
@@ -6,6 +8,11 @@ const FormRow = (props) => {
             {props.children}
         </div>
     );
+};
+
+FormRow.propTypes = {
+    last: PropTypes.bool,
+    children: PropTypes.node
 };
 
 export default FormRow;
