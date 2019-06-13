@@ -1,5 +1,6 @@
 import Link from './Link';
 import Button from './Button';
+import Badge from './Badge';
 import StyledButton from './StyledButton';
 import IconButton from './IconButton';
 import Card from './Card';
@@ -28,6 +29,7 @@ import Popover from './Popover';
 export {
     Link,
     Button,
+    Badge,
     StyledButton,
     IconButton,
     Grid,
