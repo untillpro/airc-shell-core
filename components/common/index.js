@@ -1,3 +1,4 @@
+import Divider from './Divider';
 import Link from './Link';
 import Button from './Button';
 import Badge from './Badge';
@@ -24,9 +25,14 @@ import ColorPicker from './ColorPicker';
 import DatePicker from './DatePicker';
 import FieldError from './FieldError';
 import Icon from './Icon';
+import BaseIcon from './BaseIcon';
 import Popover from './Popover';
+import Dropdown from './Dropdown';
+import Menu from './Menu';
+import Modal from './Modal';
 
 export {
+    Divider,
     Link,
     Button,
     Badge,
@@ -53,5 +59,9 @@ export {
     DatePicker,
     FieldError,
     Icon,
-    Popover
+    BaseIcon,
+    Popover,
+    Dropdown,
+    Menu,
+    Modal
 };

@@ -1152,29 +1152,29 @@ input[type='checkbox']:checked {
 }
 
 
-.btn.ml,
-.btn.ml-medium {
+.ml,
+.ml-medium {
   margin-left: 10pt;
 }
 
-.btn.ml-small {
+.ml-small {
   margin-left: 5pt;
 }
 
-.btn.ml-large {
+.ml-large {
   margin-left: 15pt;
 }
 
-.btn.mr,
-.btn.mr-medium {
+.mr,
+.mr-medium {
   margin-right: 10pt;
 }
 
-.btn.mr-small {
+.mr-small {
   margin-right: 5pt;
 }
 
-.btn.mr-large {
+.mr-large {
   margin-right: 15pt;
 }
 
