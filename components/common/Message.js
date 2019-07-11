@@ -6,7 +6,7 @@ class Message extends Component {
         if (!this.props.header) return null;
 
         return (
-            <div class="ushell-message-block-header">
+            <div class="ushell-message-header">
                 {this.props.header}
             </div>
         );
@@ -16,7 +16,7 @@ class Message extends Component {
         if (!this.props.footer) return null;
 
         return (
-            <div class="ushell-message-block-footer">
+            <div class="ushell-message-footer">
                 {this.props.footer}
             </div>
         );
@@ -24,7 +24,7 @@ class Message extends Component {
 
     renderContent() {
         return (
-            <div class="ushell-message-block-content">
+            <div class="ushell-message-content">
                 {this.props.children}
             </div>
         );
@@ -32,10 +32,14 @@ class Message extends Component {
 
     render() {
         return (
-            <div className={`ushell-message-block ${this.props.type || ''}`}>
-                {this.renderHeader()}
-                {this.renderContent()}
-                {this.renderFooter()}
+            <div className={`ushell-message ${this.props.type || ''}`}>
+                <div className="content-container">
+                    <div className="paper">
+                        {this.renderHeader()}
+                        {this.renderContent()}
+                        {this.renderFooter()}
+                    </div>
+                </div>
             </div>
         );
     }

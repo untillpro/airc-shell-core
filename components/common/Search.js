@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import log from 'Log';
 
 class Search extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class Search extends Component {
     }
 
     handleChange(event) {
-        console.log('Search field change event: ', event.target.value);
+        log('Search field change event: ', event.target.value);
     }
 
     renderSearch() {

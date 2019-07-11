@@ -433,8 +433,14 @@ i {
 
 .paper {
   background-color: #fff;
-  /* box-shadow: var(--box-shadow-z-1); */
+  box-shadow: var(--box-shadow-z-1);
   border-radius: var(--border-radius-medium);
+  padding: 20pt;
+  margin: 10pt 0pt;
+}
+
+.paper.nopad {
+  padding: 0;
 }
 
 .clear, .cle {
@@ -1724,6 +1730,59 @@ input[type='checkbox']:checked {
 
   left: 50%;
   margin-left: -75%;
+}
+
+/* message */
+
+.ushell-message {
+
+}
+
+.ushell-message-header {
+  text-align: left;
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 15pt;
+  margin-bottom: 15pt;
+
+  font-size: 16pt;
+  font-weight: 600;
+}
+
+.ushell-message-header.center {
+  text-align: center;
+}
+
+.ushell-message-header.right {
+  text-align: right;
+}
+
+.ushell-message-footer {
+  text-align: left;
+
+  margin-top: 15pt;
+  border-top: 1px solid #ededed;
+  padding-top: 15pt;
+}
+
+.ushell-message-footer.center {
+  text-align: center;
+}
+
+.ushell-message-footer.right {
+  text-align: right;
+}
+
+.ushell-message-content {
+  text-align: left;
+  line-height: 1.4;
+}
+
+.ushell-message-content.center {
+  text-align: center;
+}
+
+.ushell-message-content.right {
+  text-align: right;
 }
 
 /* color picker */
