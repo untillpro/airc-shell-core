@@ -39,14 +39,30 @@
     margin-left: 12px;
 }
 
-.edit-form-modal .ant-modal-body {
-    padding: 50px 20px 0px 20px;
+.ant-modal.__small {
+    width: 50% !important;
 }
 
-.edit-form-modal .ant-modal-close-x {
+.ant-modal.__medium {
+    width: 70% !important;
+}
+
+.ant-modal.__large {
+    width: 80% !important;
+}
+
+.ant-modal-close-x {
     width: 40px;
     height: 40px;
     line-height: 40px;
+}
+
+.ant-modal-body {
+    padding: 0px;
+}
+
+.edit-form-modal .ant-modal-body {
+    padding: 50px 20px 0px 20px;
 }
 
 .page-section-content-fields-group .ant-tabs {

@@ -1158,19 +1158,19 @@
 
             /* eslint no-use-before-define:0 */
             function open(envelope) {
-                log('opening envelope', envelope);
+                console.log('opening envelope', envelope);
 
                 if (envelope.replies) {
-                    log('this envelope is a reply', envelope.replies);
-                    log(stamp.__deferred);
+                    console.log('this envelope is a reply', envelope.replies);
+                    console.log(stamp.__deferred);
                     var defer = stamp.__deferred[envelope.stamp];
                     if (defer) {
-                        log('received response', envelope);
+                        console.log('received response', envelope);
                         var letter = envelope.payload;
                         if (typeof defer.resolve !== 'function') {
                             throw new Error('missing resolve method for ' + envelope.stamp);
                         }
-                        log('resolving with payload', letter, 'for stamp', envelope.stamp);
+                        console.log('resolving with payload', letter, 'for stamp', envelope.stamp);
                         delete envelope.stamp;
                         delete stamp.__deferred[envelope.stamp];
 
@@ -1184,7 +1184,7 @@
                     }
                 }
 
-                log('returning payload from envelope', envelope);
+                console.log('returning payload from envelope', envelope);
                 return envelope.payload;
             }
 
@@ -1228,12 +1228,12 @@
                     return deliver(mailman, address, data);
                 } else if (arguments.length === 2 && hasBeenStamped(mailman)) {
                     var envelope = mailman;
-                    log('resealing envelope', envelope);
+                    console.log('resealing envelope', envelope);
                     data = address;
                     envelope.payload = data;
                     return envelope;
                 } else if (arguments.length === 1 && hasBeenStamped(mailman)) {
-                    log('opening envelope?', mailman);
+                    console.log('opening envelope?', mailman);
                     if (arguments.length !== 1 ||
                         typeof mailman !== 'object') {
                         throw new Error('expected just data ' + JSON.stringify(arguments));
@@ -2290,10 +2290,10 @@
                         var method = params.myApi[cmd];
                         if (typeof method === 'function') {
                             var result = method.apply(params.myApi, args);
-                            // log('method', cmd, 'result', JSON.stringify(result));
+                            // console.log('method', cmd, 'result', JSON.stringify(result));
                             return result;
                         } else {
-                            log('unknown command', cmd, 'from the parent');
+                            console.log('unknown command', cmd, 'from the parent');
                         }
                     }
                 }
@@ -2301,13 +2301,13 @@
                 return new Promise(function (resolve, reject) {
 
                     function handshakeEnvelope(envelope, port) {
-                        console.log('handshake envelope with caller', JSON.stringify(envelope));
+                        console.console.log('handshake envelope with caller', JSON.stringify(envelope));
 
                         if (!isIframed()) {
-                            log('responding to handshake from iframe');
+                            console.log('responding to handshake from iframe');
                             var letter = selfAddressed(envelope);
                             if (letter) {
-                                console.log('iframe hadnshake options', JSON.stringify(letter));
+                                console.console.log('iframe hadnshake options', JSON.stringify(letter));
                             }
                             selfAddressed(envelope, params.options);
                             selfAddressed(apiMethods.post, port, envelope);
@@ -2325,7 +2325,7 @@
 
                     function respondToMail(envelope, port) {
                         var letter = selfAddressed(envelope);
-                        console.log('responding to letter', JSON.stringify(letter));
+                        console.console.log('responding to letter', JSON.stringify(letter));
                         var result = callApiMethod(letter);
                         if (isPromise(result)) {
                             result.then(function (value) {
@@ -2340,7 +2340,7 @@
                         try {
                             var api = apiMethods.reviveApi(params.options, received, port);
                             if (!isIframed() && params.myApi) {
-                                log('sending external api back to the iframe');
+                                console.log('sending external api back to the iframe');
                                 apiMethods.send(params.myApi, port, params.options);
                             }
                             resolve(api);
@@ -2352,10 +2352,10 @@
                     function processMessage(e) {
                         la(e.data, 'expected message with data');
                         if (selfAddressed.is(e.data)) {
-                            log('received envelope from the other side', e.data);
+                            console.log('received envelope from the other side', e.data);
                             var letter = selfAddressed(e.data);
                             if (!letter) {
-                                log('nothing to do for envelope', e.data);
+                                console.log('nothing to do for envelope', e.data);
                             } else {
                                 switch (letter.cmd) {
                                     case '__handshake':
@@ -2375,7 +2375,7 @@
 
                         if (!data || !data.cmd) {
                             var msg = 'invalid message received by the iframe API';
-                            log(msg);
+                            console.log(msg);
                             throw new Error(msg);
                         }
 
@@ -2393,7 +2393,7 @@
                         apiMethods.handshake(parent, params.options)
                             .then(function (optionsFromOtherSide) {
                                 var api = typeof params.myApi === 'function' ? params.myApi(optionsFromOtherSide) : params.myApi;
-                                console.log('has received handshake options', JSON.stringify(optionsFromOtherSide));
+                                console.console.log('has received handshake options', JSON.stringify(optionsFromOtherSide));
                                 apiMethods.send(api, parent, params.options);
                             });
                     }
@@ -2498,7 +2498,7 @@
                 la(typeof commandData === 'object' && commandData.stamp,
                     'missing command stamp', commandData);
 
-                console.log('responding to command', commandData.stamp, 'with', result);
+                console.console.log('responding to command', commandData.stamp, 'with', result);
 
                 // var stampIt = post.bind(null, post, port);
 
@@ -2795,7 +2795,7 @@
                 options = options || {};
                 received = received || {};
 
-                // console.log(received.md5);
+                // console.console.log(received.md5);
 
                 var computedMD5;
                 if (typeof options.md5 === 'boolean' && options.md5) {
