@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal as AntdModal } from 'antd';
 
-class Modal extends Component {
+class Modal extends AntdModal {
     getClass() {
         const { size, className = '' } = this.props;
         let  result = '';
