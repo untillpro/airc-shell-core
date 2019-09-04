@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Modal as AntdModal } from 'antd';
 
 class Modal extends AntdModal {
@@ -7,8 +7,8 @@ class Modal extends AntdModal {
         let  result = '';
 
         switch (size) {
-            case 'small': result = '__small'; 
-            case 'large': result = '__large'; 
+            case 'small': result = '__small'; break; 
+            case 'large': result = '__large'; break;
             default: result = '__medium'; 
         }
 
