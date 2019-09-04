@@ -21,7 +21,7 @@ class TextInput extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         const { value } = nextProps
         
         if (this.state.value !== value) {
