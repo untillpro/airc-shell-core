@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Modal as AntdModal } from 'antd';
 
 class Modal extends AntdModal {
@@ -7,16 +7,16 @@ class Modal extends AntdModal {
         let  result = '';
 
         switch (size) {
-            case 'small': result = '__small'; 
-            case 'large': result = '__large'; 
-            default: result = '__medium'; 
+            case 'small': result = '__small'; break; 
+            case 'large': result = '__large'; break;
+            default: result = '__medium'; break;
         }
 
         return `${className} ${result}`;
     }
 
     render() {
-        return <AntdModal 
+        return <AntdModal
             {...this.props} 
             className={this.getClass()}
         />;
