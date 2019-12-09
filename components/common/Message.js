@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+import Icon from './Icon';
 
 class Message extends Component {
     renderHeader() {
         if (!this.props.header) return null;
 
         return (
-            <div class="ushell-message-header">
+            <div className="message-header">
                 {this.props.header}
             </div>
         );
@@ -16,7 +17,7 @@ class Message extends Component {
         if (!this.props.footer) return null;
 
         return (
-            <div class="ushell-message-footer">
+            <div className="message-footer">
                 {this.props.footer}
             </div>
         );
@@ -24,30 +25,56 @@ class Message extends Component {
 
     renderContent() {
         return (
-            <div class="ushell-message-content">
+            <div className="message-content">
                 {this.props.children}
             </div>
         );
     }
 
-    render() {
+    renderIcon() {
+        let { type } = this.props;
+        let icon = 'info';
+
+        switch (type) {
+            case 'success': 
+                icon = 'check-circle'; 
+                break;
+
+            case 'warning': 
+                icon = 'warning'; 
+                break;
+
+            case 'error': 
+                icon = 'close-circle'; 
+                break;
+
+            default: 
+                icon = 'info-circle'; 
+                type = 'info';
+        }
+
         return (
-            <div className={`ushell-message ${this.props.type || ''}`}>
-                <div className="content-container">
-                    <div className="paper">
-                        {this.renderHeader()}
-                        {this.renderContent()}
-                        {this.renderFooter()}
-                    </div>
+            <div className={`message-icon ${type}`}>
+                <Icon type={icon} theme="filled"/>
+            </div>
+        );
+    }
+
+    render() {
+        const { type } = this.props;
+
+        return (
+            <div className={`message paper ${type || ''}`}>
+                {this.renderIcon()}
+
+                <div className="message-body">
+                    {this.renderHeader()}
+                    {this.renderContent()}
+                    {this.renderFooter()}
                 </div>
             </div>
         );
     }
 }
-
-Message.propTypes = {
-    type: PropTypes.string, 
-    children: PropTypes.node
-};
 
 export default Message;

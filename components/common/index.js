@@ -30,6 +30,7 @@ import Popover from './Popover';
 import Dropdown from './Dropdown';
 import Menu from './Menu';
 import Modal from './Modal';
+import ImageSelector from './ImageSelector';
 
 export {
     Divider,
@@ -63,5 +64,6 @@ export {
     Popover,
     Dropdown,
     Menu,
-    Modal
+    Modal,
+    ImageSelector
 };
