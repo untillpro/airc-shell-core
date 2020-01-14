@@ -2038,6 +2038,8 @@ input[type='checkbox']:checked {
 .color-preview.square {
   display: inline-block;
   width: auto;
+  width: 24px;
+  height: 24px;
 }
 
 .color-preview.value-preview {
