@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 import ReactTable from 'react-table';
 
 class Table extends ReactTable {
