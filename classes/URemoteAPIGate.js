@@ -18,9 +18,9 @@ class URemoteAPIGate {
     async _callApiMethod(method, ...args) {
         console.log('Calling URemoteAPIGate._callApiMethod with arguments', args);
 
-        if (this.shellApi) {
-            if (this.shellApi[method] && typeof this.shellApi[method] === 'function') {
-                return this.shellApi[method](...args);
+        if (this.api) {
+            if (this.api[method] && typeof this.api[method] === 'function') {
+                return this.api[method](...args);
             }
         }
     }
