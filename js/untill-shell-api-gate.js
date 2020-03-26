@@ -1,93 +1,72 @@
-/*
- * Copyright (c) 2020-present unTill Pro, Ltd.
- */
-
 
 class UShellAPIGate {
-    constructor(dispatch = null) {
-        this.api = null;
-        this.dispatch = dispatch; // dispatch function
+    constructor(pluginApi) {
+        this.shellApi = null;
+        this.pluginApi = pluginApi || {}; // dispatch function
     }
 
     init(iframeApi) {
         if (iframeApi && typeof iframeApi === 'function') {
-            iframeApi({
-                dispatch: (action) => { this.dispatch(action) }
-            }).then((api) => {
-                this.api = api;
+            iframeApi(this.pluginApi)
+                .then((api) => {
+                    this.api = api;
 
-                if (api.onModuleLoad) {
-                    api.onModuleLoad();
-                }
-            });
+                    if (api.onModuleLoad) {
+                        api.onModuleLoad();
+                    }
+                }, (err) => {
+                    console.error(err, 'UShellAPIGate error', "UShellAPIGate.init()");
+                });
         } else {
             throw new Error('Ushell API error: iframeApi is not defined!');
         }
     }
 
-    async dispatch(action) {
-        if (this.dispatch && typeof this.dispatch === 'function') {
-            this.dispatch(action);
-        }
-    }
-    
-
-    async do(queueId, path, params) {
-        if (this.api) {
-            if (this.api.do && typeof this.api.do === 'function') {
-                return this.api.do(queueId, path, params);
-            } 
-
-            throw new Error('Remote method api.do() not available.');
-        } else {
-            throw new Error('Remote api not available.');
-        }
-
+    async do(queueId, path, params, method = 'get') {
+        return this._callApiMethod('do', queueId, path, params, method);
     }
 
     async sendError(text = null, descr = null, lifetime = 10, hideClose = false) {
-        if (this.api) {
-            if (this.api.do && typeof this.api.do === 'function') {
-                return this.api.sendError(text, descr, lifetime, hideClose);
-            } 
-
-            throw new Error('Remote method api.sendError() not available.');
-        } else {
-            throw new Error('Remote api not available.');
-        }
+        return this._callApiMethod('sendError', text, descr, lifetime, hideClose);
     }
 
     async sendWarning(text = null, descr = null, lifetime = 10, hideClose = false) {
-        if (this.api) {
-            if (this.api.do && typeof this.api.do === 'function') {
-                return this.api.sendWarning(text, descr, lifetime, hideClose);
-            } 
-
-            throw new Error('Remote method api.sendWarning() not available.');
-        } else {
-            throw new Error('Remote api not available.');
-        }
+        return this._callApiMethod('sendWarning', text, descr, lifetime, hideClose);
     }
 
     async sendSuccess(text = null, descr = null, lifetime = 10, hideClose = false) {
-        if (this.api) {
-            if (this.api.do && typeof this.api.do === 'function') {
-                return this.api.sendSuccess(text, descr, lifetime, hideClose);
-            } 
-
-            throw new Error('Remote method api.sendSuccess() not available.');
-        } else {
-            throw new Error('Remote api not available.');
-        }
+        return this._callApiMethod('sendSuccess', text, descr, lifetime, hideClose);
     }
 
     async sendInfo(text = null, descr = null, lifetime = 10, hideClose = false) {
-        if (this.api) {
-            if (this.api.do && typeof this.api.do === 'function') {
-                return this.api.sendInfo(text, descr, lifetime, hideClose);
-            } 
+        return this._callApiMethod('sendInfo', text, descr, lifetime, hideClose);
+    }
 
-            throw new Error('Remote method api.sendInfo() not available.');
+    async conf(operations, wsids, timestamp, offset) {
+        return this._callApiMethod('conf', operations, wsids, timestamp, offset);
+    }
+
+    async collection(type, wsids, page, page_size, show_deleted) {
+        return this._callApiMethod('sendcollectionInfo', type, wsids, page, page_size, show_deleted);
+    }
+
+    async sync(entries) {
+        return this._callApiMethod('sync', entries);
+    }
+
+    async log(params) {
+        return this._callApiMethod('log', params);
+    }
+
+    async _callApiMethod(method, ...args) {
+        console.log('Calling UShellAPIGate._callApiMethod with arguments', args);
+
+        if (this.shellApi) {
+            if (this.shellApi[method] && typeof this.shellApi[method] === 'function') {
+                return this.shellApi[method](...args);
+            }
+
+            throw new Error(`Remote method api.${method}() not available.`);
         } else {
             throw new Error('Remote api not available.');
         }
@@ -95,8 +74,7 @@ class UShellAPIGate {
 }
 
 if (typeof module != "undefined" && module.exports) {
-    module.exports = new UShellAPIGate();
+    module.exports = UShellAPIGate;
 } else {
     window.UApi = (api) => new UShellAPIGate().init(api); //????? TODO RIGHT
 }
-  

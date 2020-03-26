@@ -1,8 +1,5 @@
-/*
- * Copyright (c) 2020-present unTill Pro, Ltd.
- */
-
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import Tip from './Tip';
@@ -71,6 +68,12 @@ class Label extends Component {
         );
     }
     
+};
+
+Label.propTypes = {
+    text: PropTypes.string, 
+    tip: PropTypes.node, 
+    error: PropTypes.bool
 };
 
 export default Label;

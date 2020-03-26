@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020-present unTill Pro, Ltd.
- */
-
 import _ from 'lodash';
 import React, { PureComponent, Fragment } from 'react';
 import { InputNumber, Modal, Button, Icon, Avatar } from 'antd';

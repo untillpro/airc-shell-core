@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020-present unTill Pro, Ltd.
- */
-
 export const getFileSize = (sizeInBytes) => {
     let bytes = parseInt(sizeInBytes, 10);
     let kbytes = 0;

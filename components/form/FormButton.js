@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020-present unTill Pro, Ltd.
- */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';

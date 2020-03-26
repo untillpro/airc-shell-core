@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020-present unTill Pro, Ltd.
- */
-
 const initPassViewToggler = () => {
     $(".form-row-field-pass-tgl").on("click", function() {
         const passInput = $(this).prev('input');
