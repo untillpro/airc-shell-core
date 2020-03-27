@@ -12,7 +12,7 @@ class UShellAPIGate {
                 this.shellApi = api;
 
                 if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
-                    api.moduleLoaded();
+                    api.moduleLoaded(pluginApi);
                 }
             }, (err) => {
                 Logger.error(err, 'UShellAPIGate error', "UShellAPIGate.init()");
