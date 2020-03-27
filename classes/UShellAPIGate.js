@@ -44,15 +44,15 @@ class UShellAPIGate {
     }
 
     async collection(type, wsids, page, page_size, show_deleted) {
-        return this._callApiMethod('sendcollectionInfo', type, wsids, page, page_size, show_deleted);
+        return this._callApiMethod('collection', type, wsids, page, page_size, show_deleted);
     }
 
     async sync(entries) {
         return this._callApiMethod('sync', entries);
     }
 
-    async log(params) {
-        return this._callApiMethod('log', params);
+    async log(params, wsids) {
+        return this._callApiMethod('log', params, wsids);
     }
 
     async _callApiMethod(method, ...args) {
