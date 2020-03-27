@@ -51,8 +51,8 @@ class UShellAPIGate {
         return this._callApiMethod('sync', entries);
     }
 
-    async log(params) {
-        return this._callApiMethod('log', params);
+    async log(params, wsids) {
+        return this._callApiMethod('log', params, wsids);
     }
 
     async _callApiMethod(method, ...args) {
