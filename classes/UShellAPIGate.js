@@ -9,6 +9,8 @@ class UShellAPIGate {
 
         iframeApi(this.pluginApi)
             .then((api) => {
+                console.log('Api recieved in journal plugin', api);
+                
                 this.shellApi = api;
 
                 if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
@@ -51,8 +53,8 @@ class UShellAPIGate {
         return this._callApiMethod('sync', entries);
     }
 
-    async log(params, wsids) {
-        return this._callApiMethod('log', params, wsids);
+    async log(wsids, params) {
+        return this._callApiMethod('log', wsids, params);
     }
 
     async _callApiMethod(method, ...args) {
