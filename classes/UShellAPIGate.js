@@ -9,10 +9,11 @@ class UShellAPIGate {
 
         iframeApi(this.pluginApi)
             .then((api) => {
+                console.log('Api recieved in BO plugin', api);
                 this.shellApi = api;
 
                 if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
-                    api.moduleLoaded(pluginApi);
+                    api.moduleLoaded();
                 }
             }, (err) => {
                 Logger.error(err, 'UShellAPIGate error', "UShellAPIGate.init()");
