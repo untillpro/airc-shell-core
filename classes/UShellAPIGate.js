@@ -9,7 +9,7 @@ class UShellAPIGate {
 
         iframeApi(this.pluginApi)
             .then((api) => {
-                console.log('Api recieved in BO plugin', api);
+                console.log('Api recieved in plugin', api);
                 this.shellApi = api;
 
                 if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
