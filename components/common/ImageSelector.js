@@ -411,7 +411,7 @@ class ImageSelector extends PureComponent {
 
     render() {
         const { disabled } = this.props;
-        const { visible, result, src } = this.state;
+        const { visible, result } = this.state;
 
         return (
             <Fragment>

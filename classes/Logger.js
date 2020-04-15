@@ -1,5 +1,5 @@
 import moment from 'moment';
-import isProd from 'is-prod';
+//import isProd from 'is-prod';
 
 class Logger {
     static log(message, title, source) {

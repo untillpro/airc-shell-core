@@ -8,17 +8,20 @@ class TextInput extends Component {
     constructor() {
         super();
 
+        this.ref = null;
         this.state = {
             value: ''
         };
     }
 
     componentDidMount() {
-        const { value } = this.props;
+        const { value, autoFocus } = this.props;
         
         if (value) {
             this.setState({value});
         }
+
+        if (autoFocus && this.ref) this.ref.focus();
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -60,6 +63,7 @@ class TextInput extends Component {
                 className={cn('form-input', { error })} 
                 {...this.props}
                 value={value}
+                ref={(ref) => this.ref = ref}
             />
         );
     }
