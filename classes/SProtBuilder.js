@@ -32,7 +32,7 @@ class SProtBuilder {
 
                 
                 if (!elements || (!_.isArray(elements) && !_.isObject(elements))) {
-                    return
+                    return;
                 }
 
                 let section = _.get(this._result, path);
