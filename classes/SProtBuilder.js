@@ -32,7 +32,7 @@ class SProtBuilder {
 
                 
                 if (!elements || (!_.isArray(elements) && !_.isObject(elements))) {
-                    throw new Error('Each chunk should contain "path" props as array of strings ');
+                    return
                 }
 
                 let section = _.get(this._result, path);
