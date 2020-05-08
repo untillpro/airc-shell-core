@@ -371,6 +371,7 @@ i {
 
 .page-content {
   padding: 20px 0px;
+  position: relative;
 }
 
 .content-container {
