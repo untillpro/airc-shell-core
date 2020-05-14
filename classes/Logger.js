@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 import moment from 'moment';
 //import isProd from 'is-prod';
 

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 class URemoteAPIGate {
     constructor(remoteApi) {
         this.api = remoteApi;

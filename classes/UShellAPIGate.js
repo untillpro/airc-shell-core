@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 
 import Logger from './Logger';
 import iframeApi from 'iframe-api';
@@ -9,7 +13,6 @@ class UShellAPIGate {
 
         iframeApi(this.pluginApi)
             .then((api) => {
-                console.log('Api recieved in plugin', api);
                 this.shellApi = api;
 
                 if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {

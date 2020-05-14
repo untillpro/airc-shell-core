@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 import Divider from './Divider';
 import Link from './Link';
 import Button from './Button';
