@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 
 class UShellAPIGate {
     constructor(pluginApi) {
