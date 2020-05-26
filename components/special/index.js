@@ -3,7 +3,9 @@
  */
 
 import ColorPreview from './ColorPreview';
+import LocationSelector from './LocationSelector';
 
 export {
-    ColorPreview
+    ColorPreview,
+    LocationSelector
 };
