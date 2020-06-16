@@ -46,7 +46,7 @@ class LocationSelector extends Component {
                 {_.map(locations, (location, index) => {
                     console.log(location, index);
                     return (
-                        <Radio className="grid-location-selector-radio" value={parseInt(index)}>
+                        <Radio key={`location_${index}`} className="grid-location-selector-radio" value={parseInt(index)}>
                             {location}
                         </Radio>
                     );
