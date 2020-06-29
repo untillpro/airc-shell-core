@@ -14,14 +14,14 @@ class NumberInput extends Component {
         super();
 
         this.state = {
-            value: null
+            value: 0
         };
     }
 
     componentDidMount() {
         const { value } = this.props;
 
-        if (value) {
+        if (value !== undefined && value !== null) { 
             this.setState({value});
         }
     }
