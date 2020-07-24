@@ -2082,6 +2082,48 @@ input[type='checkbox']:checked {
 .value-preview .color-preview-color {
   width: 20px;
 }
+
+/* DateTime filter */
+
+.date-time-filter {
+
+}
+
+.date-time-filter-periods {
+
+}
+
+.date-time-filter-periods .ant-btn {
+  margin-right: 10px;
+  margin-bottom: 6px;
+}
+
+.date-time-filter-pickers {
+  margin-top: 20px;
+  position: relative;
+}
+
+.date-time-filter-pickers .picker {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.date-time-filter-pickers .picker-error {
+  display: inline-block;
+  vertical-align: middle;
+  border-color: var(--color-danger);
+}
+.date-time-filter-pickers .ant-calendar-picker {
+  margin-right: 10px;
+}
+
+.date-time-filter-error {
+  margin-top: 12px;
+  font-size: 85%;
+  color: var(--color-danger);
+}
+
+
 /*
 * React-Table css
 * url: https://github.com/tannerlinsley/react-table

@@ -80,5 +80,5 @@ class UShellAPIGate {
 if (typeof module != "undefined" && module.exports) {
     module.exports = UShellAPIGate;
 } else {
-    window.UApi = (api) => new UShellAPIGate().init(api); //????? TODO RIGHT
+    window.UApi = (api) => new UShellAPIGate().init(api);
 }

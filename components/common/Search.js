@@ -26,6 +26,12 @@ class Search extends Component {
     }
 
     handleChange(event) {
+        const { onChange } = this.props;
+
+        if (onChange && typeof onChange === 'function') {
+            onChange(event)
+        }
+        
         console.log('Search field change event: ', event.target.value);
     }
 
