@@ -1,0 +1,12 @@
+{
+  "name": "test-untill-shell-plugin",
+  "version": "0.1.1",
+  "private": false,
+  "dependencies": {
+    "antd": "^3.18.1",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
+    "react-color": "^2.17.3",
+    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.7.0"
+  }
+}
