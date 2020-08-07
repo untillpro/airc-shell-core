@@ -36,15 +36,18 @@ class Search extends Component {
     }
 
     renderSearch() {
+        const { defaultValue } = this.props;
         const { opened } = this.state;
 
         if (opened) {
             return (
                 <input 
+                    value={defaultValue}
                     type='text' 
                     onChange={(event) => this.handleChange(event)}
                     onBlur={(event) => this.handleBlur(event)}
                     autoFocus
+                    allowClear
                 />
             );
         }

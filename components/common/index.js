@@ -27,6 +27,7 @@ import Checkbox from './Checkbox';
 import Select from './Select';
 import ColorPicker from './ColorPicker';
 import DatePicker from './DatePicker';
+import DatePickerLight from './DatePickerLight';
 import FieldError from './FieldError';
 import Icon from './Icon';
 import BaseIcon from './BaseIcon';
@@ -62,6 +63,7 @@ export {
     Select,
     ColorPicker,
     DatePicker,
+    DatePickerLight,
     FieldError,
     Icon,
     BaseIcon,
