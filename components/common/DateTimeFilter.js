@@ -45,6 +45,8 @@ class DateTimeFilter extends Component {
 
             from: null,
             to: null,
+            fromTime: null,
+            toTime: null,
 
             isCustom: false,
         };
@@ -56,24 +58,48 @@ class DateTimeFilter extends Component {
 
     componentDidMount() {
         const { from, to, unix, showCustom } = this.props;
-
+        
+        const opts = {
+            isCustom: !!showCustom,
+        };
+        
         if (unix) {
-            this.setState({
-                isCustom: !!showCustom,
-                from: from ? moment.unix(from) : null,
-                to: to ? moment.unix(to) : null
-            });
+            opts.from = from ? moment.unix(from) : null;
+            opts.to = to ? moment.unix(to) : null;
         } else {
-            this.setState({
-                isCustom: !!showCustom,
-                from: from ? moment(from) : null,
-                to: to ? moment(to) : null
-            });
+            opts.from = from ? moment(from) : null;
+            opts.to = to ? moment(to) : null;
         }
+
+        let wh = this.initWorginkHours();
+
+        console.log("DateTimeFilter.componentDidMount()", opts, wh);
+
+        this.setState({ ...opts, ...wh });
+    }
+
+    
+    initWorginkHours() {
+        const { fromTime, toTime } = this.props;
+        let from, to = null;
+
+        if (fromTime) {
+            from = moment(fromTime);
+        }
+
+        if (toTime) {
+            to = moment(toTime);
+        }
+
+        return {
+            fromTime: from, 
+            toTime: to
+        };
     }
 
     handleSelectPeriod(period) {
-        const { onPeriodSelected, fromTime, toTime } = this.props;
+        const { fromTime, toTime } = this.state;
+        const { onPeriodSelected } = this.props;
 
         let from = null;
         let to = null;
@@ -82,6 +108,7 @@ class DateTimeFilter extends Component {
             if (period.from && typeof period.from === 'function') {
                 from = period.from();
 
+                console.log('fromTime', fromTime, fromTime.hour(), fromTime.minute());
                 if (fromTime && typeof fromTime === 'object') {
                     from.hour(fromTime.hour()).minute(fromTime.minute()).second(0).millisecond(0);
                 }
@@ -90,6 +117,7 @@ class DateTimeFilter extends Component {
             if (period.to && typeof period.to === 'function') {
                 to = period.to();
 
+                console.log('toTime', toTime);
                 if (toTime && typeof toTime === 'object') {
                     to.hour(toTime.hour()).minute(toTime.minute()).second(0).millisecond(0);
                 }
@@ -104,8 +132,16 @@ class DateTimeFilter extends Component {
     }
 
     handleChange(dates) {
+        const { isCustom } = this.state;
         const { onChange, unix } = this.props;
-        const [from, to] = dates;
+        let from, to;
+
+        if (isCustom) {
+            from = dates.start;
+            to = dates.end;
+        } else {
+            [from, to] = dates;
+        }
 
         this.setState({ from, to });
 
@@ -205,12 +241,19 @@ class DateTimeFilter extends Component {
         return null;
     }
 
+    getShortcuts() {
+        return {
+            "now": moment()
+        };
+    }
+
     renderPicker() {
         const { from, to } = this.state;
 
         return (
             <div className="date-time-filter-pickers">
                 <RangePicker
+                    shortcuts={this.getShortcuts()}
                     disabled={true}
                     allowEmpty={[true, true]}
                     value={[from, to]}
@@ -223,9 +266,24 @@ class DateTimeFilter extends Component {
     }
 
     renderCalendars() {
+        const { from, to } = this.state;
+        const mom = moment();
+
+        mom.start = from;
+        mom.end = to;
+
         return (
             <div>
-                <DatetimeRangePicker showTimePicker shortcuts />
+                <DatetimeRangePicker 
+                    shortcuts={{
+                        "now": moment()
+                    }}
+                    onChange={this.handleChange}
+                    moment={mom} 
+                    fromLabel="From:"
+                    toLabel="To:"
+                    showTimePicker  
+                />
             </div>
         );
     }
@@ -244,11 +302,22 @@ class DateTimeFilter extends Component {
         return null;
     }
 
+    debug() {
+        if (this.props.debug) {
+            const { from, to } = this.state;
+
+            return <div>{`Selected date: ${from} - ${to}`}</div>;
+        }
+
+        return null;
+    }
+
     render() {
         const { isCustom } = this.state;
 
         return (
             <div className="date-time-filter">
+                {this.debug()}
                 {this.rederPeriods()}
 
                 {isCustom === true ? this.renderCalendars() : this.renderPicker()}
