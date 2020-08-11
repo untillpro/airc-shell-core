@@ -7,6 +7,6 @@
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "react-color": "^2.17.3",
-    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.1"
+    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.2"
   }
 }
