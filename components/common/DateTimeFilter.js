@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Tabs, DatePicker, Button, Empty } from 'antd';
