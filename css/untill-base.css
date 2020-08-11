@@ -2126,6 +2126,21 @@ input[type='checkbox']:checked {
 }
 
 
+.datetime-filter-modal {
+
+}
+
+.datetime-filter-modal-date {
+  display: inline-block;
+  font-size: 90%;
+  margin-right: 10px;
+  color: var(--color-light-900);
+}
+
+.datetime-filter-modal-content {
+  padding: 20px;
+}
+
 /*
 * React-Table css
 * url: https://github.com/tannerlinsley/react-table

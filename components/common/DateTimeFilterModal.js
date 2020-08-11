@@ -46,10 +46,7 @@ class DateTimeFilterModal extends PureComponent {
     }
 
     handleChange(values) {
-        console.log('++++ handleChange ++++', values);
-
         if (values && typeof values === 'object') {
-            console.log('++++++ setState +++++++++');
             this.setState({
                 from: values.from,
                 to: values.to
@@ -64,7 +61,6 @@ class DateTimeFilterModal extends PureComponent {
     }
 
     handleOk() {
-        console.log("handleOk", this.state);
         const { from, to } = this.state;
         const { onChange } = this.props;
         
@@ -96,7 +92,11 @@ class DateTimeFilterModal extends PureComponent {
     renderDate() {
         const { from, to, format } = this.props;
 
-        return moment(from).format(format) + ' - ' + moment(to).format(format)
+        return (
+            <div className="datetime-filter-modal-date">
+                {moment(from).format(format) + ' - ' + moment(to).format(format)}
+            </div>
+        );
     }
 
     render() {
@@ -104,7 +104,7 @@ class DateTimeFilterModal extends PureComponent {
         const { from, to, fromTime, toTime, periods } = this.props;
 
         return (
-            <div className="datepicker-light">
+            <div className="datetime-filter-modal">
                 {this.renderDate()}
 
                 <Button
@@ -119,18 +119,20 @@ class DateTimeFilterModal extends PureComponent {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
-                    <DateTimeFilter
-                        showCustom
-                        periods={periods}
+                    <div className="datetime-filter-modal-content">
+                        <DateTimeFilter
+                            showCustom
+                            periods={periods}
 
-                        from={from}
-                        to={to}
-                        fromTime={fromTime}
-                        toTime={toTime}
+                            from={from}
+                            to={to}
+                            fromTime={fromTime}
+                            toTime={toTime}
 
-                        onTabChange={null}
-                        onChange={this.handleChange}
-                    />
+                            onTabChange={null}
+                            onChange={this.handleChange}
+                        />
+                    </div>
                 </Modal>
             </div>
         );

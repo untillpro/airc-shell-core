@@ -77,8 +77,6 @@ class DateTimeFilter extends Component {
 
         let wh = this.initWorginkHours();
 
-        console.log("DateTimeFilter.componentDidMount()", opts, wh);
-
         this.setState({ ...opts, ...wh });
     }
 
@@ -111,8 +109,6 @@ class DateTimeFilter extends Component {
         if (period) {
             if (period.from && typeof period.from === 'function') {
                 from = period.from();
-
-                console.log('fromTime', fromTime, fromTime.hour(), fromTime.minute());
                 if (fromTime && typeof fromTime === 'object') {
                     from.hour(fromTime.hour()).minute(fromTime.minute()).second(0).millisecond(0);
                 }
@@ -120,8 +116,6 @@ class DateTimeFilter extends Component {
 
             if (period.to && typeof period.to === 'function') {
                 to = period.to();
-
-                console.log('toTime', toTime);
                 if (toTime && typeof toTime === 'object') {
                     to.hour(toTime.hour()).minute(toTime.minute()).second(0).millisecond(0);
                 }
@@ -169,8 +163,6 @@ class DateTimeFilter extends Component {
         const { isCustom } = this.state;
         const { onTabChange } = this.props;
 
-        console.log('handle tab change', tab);
-
         if (tab === CUSTOM_TAB_CODE) {
             if (!isCustom) {
                 this.setState({ isCustom: true });
@@ -207,8 +199,6 @@ class DateTimeFilter extends Component {
 
     rederPeriods() {
         const periods = this.getPeriods();
-
-        console.log('periods is : ', periods);
 
         if (_.size(periods) > 0) {
             return (
