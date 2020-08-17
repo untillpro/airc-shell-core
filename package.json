@@ -1,6 +1,6 @@
 {
   "name": "airc-shell-core",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "dependencies": {
     "es6-promise": "3.0.2",
@@ -11,6 +11,6 @@
     "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.2"
   },
   "devDependencies": {
-    "self-addressed": "0.3.0"
+    "self-addressed": "^0.3.0"
   }
 }
