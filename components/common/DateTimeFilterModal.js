@@ -118,6 +118,7 @@ class DateTimeFilterModal extends PureComponent {
                     visible={open}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    width={660}
                 >
                     <div className="datetime-filter-modal-content">
                         <DateTimeFilter
