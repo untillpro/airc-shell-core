@@ -4,7 +4,7 @@
 
 
 import Logger from './Logger';
-import iframeApi from 'iframe-api';
+import iframeApi from '../modules/iframe-api';
 
 class UShellAPIGate {
     constructor(pluginApi) {
