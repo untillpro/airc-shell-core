@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import blacklist from 'blacklist';
 
 import { Input } from 'antd';
 
@@ -65,7 +66,7 @@ class TextInput extends Component {
         return (
             <InputComponent 
                 className={cn('form-input', { error })} 
-                {...this.props}
+                {...blacklist(this.props, 'error')}
                 value={value}
                 ref={(ref) => this.ref = ref}
             />
