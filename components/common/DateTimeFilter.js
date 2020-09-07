@@ -117,7 +117,8 @@ class DateTimeFilter extends Component {
             if (period.to && typeof period.to === 'function') {
                 to = period.to();
                 if (toTime && typeof toTime === 'object') {
-                    to.hour(toTime.hour()).minute(toTime.minute()).second(0).millisecond(0);
+                    to.hour(fromTime.hour()).minute(toTime.minute()).second(0).millisecond(0);
+                    to.add(24, "hours");
                 }
             }
 
