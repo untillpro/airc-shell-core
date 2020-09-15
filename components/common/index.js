@@ -27,6 +27,7 @@ import Checkbox from './Checkbox';
 import Select from './Select';
 import ColorPicker from './ColorPicker';
 import DatePicker from './DatePicker';
+import TimePicker from './TimePicker';
 import DateTimeFilter from './DateTimeFilter';
 import DateTimeFilterModal from './DateTimeFilterModal';
 import FieldError from './FieldError';
@@ -64,6 +65,7 @@ export {
     Select,
     ColorPicker,
     DatePicker,
+    TimePicker,
     DateTimeFilter,
     DateTimeFilterModal,
     FieldError,
