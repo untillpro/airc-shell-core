@@ -1,6 +1,6 @@
 {
   "name": "airc-shell-core",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": false,
   "dependencies": {
     "antd": "^3.18.1",
