@@ -9,7 +9,8 @@ class Search extends Component {
         super(props);
 
         this.state = {
-            opened: false
+            opened: false,
+            value: ""
         };
     }
 
@@ -27,20 +28,23 @@ class Search extends Component {
 
     handleChange(event) {
         const { onChange } = this.props;
+        const val = event.target.value;
+
+        this.setState({value: val});
 
         if (onChange && typeof onChange === 'function') {
-            onChange(event)
+            onChange(val)
         }
     }
 
     renderSearch() {
         const { defaultValue } = this.props;
-        const { opened } = this.state;
+        const { value, opened } = this.state;
 
         if (opened) {
             return (
                 <input 
-                    value={defaultValue}
+                    value={value || defaultValue}
                     type='text' 
                     onChange={(event) => this.handleChange(event)}
                     onBlur={(event) => this.handleBlur(event)}
