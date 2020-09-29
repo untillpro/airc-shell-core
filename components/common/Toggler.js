@@ -23,14 +23,6 @@ class Toggler extends Component {
         });
     }
 
-    UNSAFE_componentWillReceiveProps(newProps) {
-        const { checked } = newProps;
-
-        if (this.state.checked !== checked) {
-            this.setState({ checked });
-        }
-    }
-
     handleClick() {
         const { onChange } = this.props;
         const { checked } = this.state;

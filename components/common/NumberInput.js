@@ -2,43 +2,17 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { InputNumber } from 'antd';
 
 /*
     Documentation: https://ant.design/components/input-number/
 */
 
-class NumberInput extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            value: 0
-        };
-    }
-
-    componentDidMount() {
-        const { value } = this.props;
-
-        if (value !== undefined && value !== null) { 
-            this.setState({value});
-        }
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        const { value } = nextProps
-        
-        if (this.state.value !== value) {
-            this.setState({value});
-        }
-    }
-
+class NumberInput extends PureComponent {
     handleChange(value) {
         const { onChange } = this.props;
         const v = Number(value) ? Number(value) : 0;
-
-        this.setState({ value: v });
 
         if (onChange && typeof onChange === 'function') {
             onChange(v);
@@ -46,12 +20,12 @@ class NumberInput extends Component {
     }
 
     render() {
-        const { value } = this.state;
+        const { value } = this.props;
 
         return (
             <InputNumber 
                 {...this.props}
-                value={value}
+                defaultValue={value}
                 onChange={this.handleChange.bind(this)}
             />
         );

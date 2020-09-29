@@ -2221,17 +2221,6 @@ input[type='checkbox']:checked {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.ReactTable .rt-thead.-filters input,
-.ReactTable .rt-thead.-filters select {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #fff;
-  padding: 5px 7px;
-  font-size: inherit;
-  border-radius: 3px;
-  font-weight: normal;
-  outline: none
-}
-
 .ReactTable .rt-thead.-filters .rt-th {
   /* border-right: 1px solid rgba(0, 0, 0, 0.02) */
 }
