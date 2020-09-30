@@ -4,8 +4,14 @@
 
 import _ from 'lodash';
 import React, { PureComponent, Fragment } from 'react';
-import { InputNumber, Modal, Button, Icon, Avatar } from 'antd';
+import { InputNumber, Modal, Button, Avatar } from 'antd';
 import ReactCrop from "react-image-crop";
+
+import { 
+    PlusOutlined,
+    DeleteFilled,
+    LinkOutlined
+} from '@ant-design/icons';
 
 import "react-image-crop/dist/ReactCrop.css";
 
@@ -349,7 +355,7 @@ class ImageSelector extends PureComponent {
                     className="image-selector-image-remove"
                     onClick={this._onRemoveButton.bind(this)}
                 >
-                    <Icon type="delete" theme="filled" />
+                    <DeleteFilled />
                 </div>
             </Fragment>
         );
@@ -379,7 +385,7 @@ class ImageSelector extends PureComponent {
                     onClick={this._onLockClick.bind(this)}
                     className={`image-selector-sizes-button ${lock ? 'active' : ''}`}
                 >
-                    <Icon type="link" />
+                    <LinkOutlined />
                 </div>
 
                 <div className="image-selector-sizes-field-container">
@@ -457,7 +463,7 @@ class ImageSelector extends PureComponent {
                                     <Button
                                         onClick={this._onAddButtonClick.bind(this)}
                                     >
-                                        <Icon type="plus" />
+                                        <PlusOutlined />
                                     </Button>
                                 </div>
 

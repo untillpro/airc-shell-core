@@ -4,7 +4,12 @@
 
 import React, { Component } from 'react';
 
-import Icon from './Icon';
+import { 
+    InfoCircleFilled,
+    CheckCircleFilled,
+    WarningFilled,
+    CloseCircleFilled
+} from '@ant-design/icons';
 
 class Message extends Component {
     renderHeader() {
@@ -37,29 +42,30 @@ class Message extends Component {
 
     renderIcon() {
         let { type } = this.props;
-        let icon = 'info';
+        let icon = <InfoCircleFilled />;
 
         switch (type) {
             case 'success': 
-                icon = 'check-circle'; 
+                icon = <CheckCircleFilled />;
+                //icon = 'check-circle'; 
                 break;
 
             case 'warning': 
-                icon = 'warning'; 
+                icon = <WarningFilled />; 
                 break;
 
             case 'error': 
-                icon = 'close-circle'; 
+                icon = <CloseCircleFilled />; 
                 break;
 
             default: 
-                icon = 'info-circle'; 
+                icon = <InfoCircleFilled />; 
                 type = 'info';
         }
 
         return (
             <div className={`message-icon ${type}`}>
-                <Icon type={icon} theme="filled"/>
+                {icon}
             </div>
         );
     }
