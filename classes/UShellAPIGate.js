@@ -43,20 +43,20 @@ class UShellAPIGate {
         return this._callApiMethod('sendInfo', text, descr, lifetime, hideClose);
     }
 
-    async conf(operations, wsids, timestamp, offset) {
-        return this._callApiMethod('conf', operations, wsids, timestamp, offset);
+    async conf(...args) {
+        return this._callApiMethod('conf', ...args);
     }
 
-    async collection(type, wsids, page, page_size, show_deleted) {
-        return this._callApiMethod('collection', type, wsids, page, page_size, show_deleted);
+    async collection(...args) {
+        return this._callApiMethod('collection', ...args);
     }
 
-    async sync(entries) {
-        return this._callApiMethod('sync', entries);
+    async sync(...args) {
+        return this._callApiMethod('sync', ...args);
     }
 
-    async log(wsids, params) {
-        return this._callApiMethod('log', wsids, params);
+    async log(...args) {
+        return this._callApiMethod('log', ...args);
     }
 
     async _callApiMethod(method, ...args) {
