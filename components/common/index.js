@@ -31,7 +31,6 @@ import TimePicker from './TimePicker';
 import DateTimeFilter from './DateTimeFilter';
 import DateTimeFilterModal from './DateTimeFilterModal';
 import FieldError from './FieldError';
-import Icon from './Icon';
 import BaseIcon from './BaseIcon';
 import Popover from './Popover';
 import Dropdown from './Dropdown';
@@ -69,7 +68,6 @@ export {
     DateTimeFilter,
     DateTimeFilterModal,
     FieldError,
-    Icon,
     BaseIcon,
     Popover,
     Dropdown,
