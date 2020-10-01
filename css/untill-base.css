@@ -1789,6 +1789,8 @@ input[type='checkbox']:checked {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+
+  position: relative;
 }
 
 .card.hoverable {
@@ -1855,6 +1857,12 @@ input[type='checkbox']:checked {
   font-size: 10pt;
   line-height: 1.2;
   color: var(--color-text-light);
+}
+
+.card-loader {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 
 .hoverable:hover .card-title {
@@ -2448,21 +2456,18 @@ input[type='checkbox']:checked {
 }
 
 .ReactTable .rt-tfoot {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 auto;
+  padding: 4pt;
   flex: 1 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+  border-top: 3px solid #000;
 }
-
+.ReactTable .rt-tfoot .rt-tr {
+  padding-left: 10px;
+}
 .ReactTable .rt-tfoot .rt-td {
   /* border-right: 1px solid rgba(0, 0, 0, 0.05); */
+  font-weight: bold;
 }
 
 .ReactTable .rt-tfoot .rt-td:last-child {

@@ -2,10 +2,15 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Card extends Component {
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
+class Card extends PureComponent {
     getAlign() {
         const { align } = this.props;
 
@@ -96,7 +101,20 @@ class Card extends Component {
         return null;
     }
 
+    renderLoading() {
+        const { loading } = this.props;
+        
+        if (loading !== true) return null;
+        
+        return (
+            <div className="card-loader">
+                <Spin indicator={antIcon} />
+            </div>
+        );
+    }
     render() {
+        const { loading } = this.props;
+        
         return (
             <div 
                 className={
@@ -104,7 +122,9 @@ class Card extends Component {
                         card 
                         ${this.getAlign()}  
                         ${this.getValign()} 
-                        ${this.props.onClick ? 'hoverable' : ''} ${this.getType()}
+                        ${this.getType()}
+                        ${this.props.onClick ? 'hoverable' : ''} 
+                        ${loading ? 'loading' : ''}
                     `
                 }
                 onClick={this.props.onClick || null}
@@ -112,6 +132,7 @@ class Card extends Component {
                 {this.renderIcon()}
                 {this.renderTitle()}
                 {this.renderText()}
+                {this.renderLoading()}
             </div>
         );
     }
@@ -124,7 +145,9 @@ Card.propTypes = {
     title: PropTypes.string,
     type: PropTypes.string,
     onClick: PropTypes.func,
-    ico: PropTypes.string
+    ico: PropTypes.string,
+    loading: PropTypes.bool,
+    
 };
 
 export default Card;
