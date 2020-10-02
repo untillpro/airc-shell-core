@@ -2,10 +2,10 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { Modal as AntdModal } from 'antd';
 
-class Modal extends AntdModal {
+class Modal extends Component {
     getClass() {
         const { size, className = '' } = this.props;
         let  result = '';
