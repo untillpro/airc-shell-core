@@ -17,11 +17,10 @@ class TextInput extends Component {
     }
 
     componentDidMount() {
-        const { value, autoFocus } = this.props;
+        const { autoFocus } = this.props;
 
         if (autoFocus && this.ref) this.ref.focus();
     }
-
 
     handleChange(event) {
         const { onChange, maxLength } = this.props;
