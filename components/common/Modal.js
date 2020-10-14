@@ -2,16 +2,61 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Modal as AntdModal } from 'antd';
+import { withStackEvents } from 'stack-events';
 
-class Modal extends Component {
+import {
+    KEY_ESCAPE
+} from 'keycode-js';
+
+class Modal extends PureComponent {
+    constructor() {
+        super();
+
+        this.handleKey = this.handleKey.bind(this);
+    }
+
+    componentDidMount() {
+        console.log("Modal component did mount!");
+
+        this.props.pushEvents({
+            'keydown': this.handleKey
+        })
+    }
+
+    componentWillUnmount() {
+        this.props.popEvents();
+    }
+
+
+    handleKey(event) {
+        const { onCancel } = this.props;
+        const { keyCode } = event;
+
+        console.log("Modal clicked: ");
+
+        switch (keyCode) {
+            case KEY_ESCAPE:
+                if (onCancel && typeof onCancel === 'function') {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    onCancel()
+                }
+                
+                return;
+
+            default: return;
+        }
+    }
+
     getClass() {
         const { size, className = '' } = this.props;
-        let  result = '';
+        let result = '';
 
         switch (size) {
-            case 'small': result = '__small'; break; 
+            case 'small': result = '__small'; break;
             case 'large': result = '__large'; break;
             default: result = '__medium'; break;
         }
@@ -20,11 +65,14 @@ class Modal extends Component {
     }
 
     render() {
-        return <AntdModal
-            {...this.props} 
-            className={this.getClass()}
-        />;
+        return (
+            <AntdModal
+                {...this.props}
+                keyboard={false}
+                className={this.getClass()}
+            />
+        );
     }
 }
 
-export default Modal;
+export default withStackEvents(Modal);
