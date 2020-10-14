@@ -4,7 +4,7 @@
 
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
+import cn from 'classnames';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -52,7 +52,7 @@ class Card extends PureComponent {
                 default: return '';
             }
         }
-        
+
         return '';
     }
 
@@ -62,8 +62,8 @@ class Card extends PureComponent {
         if (ico) {
             return (
                 <div className='card-icon'>
-                    <img 
-                        src={ico} 
+                    <img
+                        src={ico}
                         alt={title || ''}
                     />
                 </div>
@@ -75,7 +75,7 @@ class Card extends PureComponent {
 
     renderTitle() {
         const { title } = this.props;
-        
+
         if (title) {
             return (
                 <div className='card-title'>
@@ -89,7 +89,7 @@ class Card extends PureComponent {
 
     renderText() {
         const { text } = this.props;
-        
+
         if (text) {
             return (
                 <div className='card-text'>
@@ -103,9 +103,9 @@ class Card extends PureComponent {
 
     renderLoading() {
         const { loading } = this.props;
-        
+
         if (loading !== true) return null;
-        
+
         return (
             <div className="card-loader">
                 <Spin indicator={antIcon} />
@@ -113,21 +113,23 @@ class Card extends PureComponent {
         );
     }
     render() {
-        const { loading } = this.props;
-        
+        const { loading, selected, onClick } = this.props;
+
         return (
-            <div 
-                className={
-                    `
-                        card 
-                        ${this.getAlign()}  
-                        ${this.getValign()} 
-                        ${this.getType()}
-                        ${this.props.onClick ? 'hoverable' : ''} 
-                        ${loading ? 'loading' : ''}
-                    `
-                }
-                onClick={this.props.onClick || null}
+            <div
+                className={cn(
+                    "card",
+                    this.getAlign(),
+                    this.getAlign(),
+                    this.getValign(),
+                    this.getType(),
+                    {
+                        'hoverable': !!onClick,
+                        'loading': loading,
+                        'selected': selected
+                    }
+                )}
+                onClick={onClick}
             >
                 {this.renderIcon()}
                 {this.renderTitle()}
@@ -147,7 +149,8 @@ Card.propTypes = {
     onClick: PropTypes.func,
     ico: PropTypes.string,
     loading: PropTypes.bool,
-    
+    selected: PropTypes.bool,
+
 };
 
 export default Card;
