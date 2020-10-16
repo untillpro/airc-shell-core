@@ -12,6 +12,6 @@
     "react-color": "^2.17.3",
     "self-addressed": "^0.3.0",
     "keycode-js": "^3.1.0",
-    "stack-events": "^0.1.15"
+    "stack-events": "^0.1.16"
   }
 }
