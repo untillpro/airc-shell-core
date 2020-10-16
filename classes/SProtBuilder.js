@@ -4,7 +4,7 @@
 
 import _ from 'lodash';
 
-class SProtBuilder {
+export default class SProtBuilder {
     constructor() {
         this._currentSection = null;
         this._result = null
@@ -93,5 +93,3 @@ class SProtBuilder {
         return this._result;
     }
 }
-
-export default SProtBuilder;

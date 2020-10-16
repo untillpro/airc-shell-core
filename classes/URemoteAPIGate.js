@@ -2,7 +2,7 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-class URemoteAPIGate {
+export default class URemoteAPIGate {
     constructor(remoteApi) {
         this.api = remoteApi;
     }
@@ -29,5 +29,3 @@ class URemoteAPIGate {
         }
     }
 }
-
-export default URemoteAPIGate;

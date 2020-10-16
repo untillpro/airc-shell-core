@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
-
+import isProd from 'is-prod';
 import moment from 'moment';
 //import isProd from 'is-prod';
 
-class Logger {
+export default class Logger {
     static log(message, title, source) {
         const df = moment().format();     
 
@@ -65,6 +65,9 @@ class Logger {
 
         console.info(`########## ${title || 'INFO'} ENDS ##########`);
     }
-}
 
-export default Logger;
+    static l(...args) {
+        if (isProd.isDevelopment()) 
+            console.log(...args);
+    }
+}
