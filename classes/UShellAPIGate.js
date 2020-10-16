@@ -6,7 +6,7 @@
 import Logger from './Logger';
 import iframeApi from '../modules/iframe-api';
 
-class UShellAPIGate {
+export default class UShellAPIGate {
     constructor(pluginApi) {
         this.shellApi = null;
         this.pluginApi = pluginApi || {};
@@ -73,5 +73,3 @@ class UShellAPIGate {
         }
     }
 }
-
-export default UShellAPIGate;

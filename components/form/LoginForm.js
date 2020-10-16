@@ -5,7 +5,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Form = (props) => {
+const LoginForm = (props) => {
     return (
         <div className='ushell-login-block-form'>
             {props.children}
@@ -13,8 +13,8 @@ const Form = (props) => {
     );
 };
 
-Form.propTypes = {
+LoginForm.propTypes = {
     children: PropTypes.node
 };
 
-export default Form;
+export default LoginForm;

@@ -5,3 +5,4 @@
 export * from './form';
 export * from './common';
 export * from './special';
+export * from './CoreProvider';

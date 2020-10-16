@@ -2,12 +2,12 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import Form from './Form';
+import LoginForm from './LoginForm';
 import FormRow from './FormRow';
 import FormButton from './FormButton';
 
 export {
-    Form,
+    LoginForm,
     FormRow,
     FormButton
 };
