@@ -41,20 +41,13 @@ class ConfirmModal extends Component {
 
         if (confirmText && onConfirm && typeof onConfirm === 'function') {
             buttons.push(
-                <Button 
-                    text={confirmText}
-                    onClick={onConfirm}
-                />
+                <Button onClick={onConfirm} > {confirmText} </Button>
             );
         }
 
         if (rejectText && onReject && typeof onReject === 'function') {
             buttons.push(
-                <Button 
-                    text={rejectText}
-                    onClick={onReject}
-                    type="primary"
-                />
+                <Button onClick={onReject} type="primary" > {rejectText} </Button>
             );
         }
 
