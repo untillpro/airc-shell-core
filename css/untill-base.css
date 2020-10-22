@@ -1933,6 +1933,14 @@ input[type='checkbox']:checked {
   line-height: 12pt;
 }
 
+.untill-base-table-title {
+  padding: 10px 20px;
+  border: 2px solid var(--color-brand);
+  margin: 10px 0px;
+  text-align: center;
+  border-radius: 10px;
+}
+
 .untill-base-table-header {
   padding: 10px;
   line-height: 20px;
