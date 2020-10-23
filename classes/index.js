@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 import Logger from './Logger';
 import SProtBuilder from './SProtBuilder';
 import URemoteAPIGate from './URemoteAPIGate';
