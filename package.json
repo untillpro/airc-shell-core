@@ -1,18 +1,18 @@
 {
   "name": "airc-shell-core",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "private": false,
   "dependencies": {
-    "antd": "^4.6.6",
+    "antd": "^4.8.4",
     "blacklist": "^1.1.4",
     "classnames": "^2.2.6",
     "es6-promise": "3.0.2",
+    "is-prod": "^1.0.1",
+    "keycode-js": "^3.1.0",
     "lodash": "^4.17.11",
-    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.2",
+    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.3",
     "react-color": "^2.17.3",
     "self-addressed": "^0.3.0",
-    "keycode-js": "^3.1.0",
-    "stack-events": "^0.1.17",
-    "is-prod": "^1.0.1"
+    "stack-events": "^0.1.17"
   }
 }
