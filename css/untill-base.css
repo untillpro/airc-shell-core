@@ -2358,11 +2358,6 @@ input[type='checkbox']:checked {
   border-bottom: 0
 }
 
-.ReactTable .rt-tbody .rt-td {
-  /* border-right: 1px solid rgba(0, 0, 0, 0.02); */
-  line-height: 30px;
-}
-
 .ReactTable .rt-tbody .rt-td .string-value {
   text-align: left;
 }
@@ -2525,7 +2520,7 @@ input[type='checkbox']:checked {
   flex: 1 0 0;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding: 7px 5px 7px 0px;
+  padding: 4px 5px 4px 0px;
   transition: .3s ease;
   transition-property: width, min-width, padding, opacity;
 }
