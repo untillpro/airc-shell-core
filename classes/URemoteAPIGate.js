@@ -15,6 +15,10 @@ export default class URemoteAPIGate {
         return this._callApiMethod('setRights', rights);
     }
 
+    async setLanguage(lang) {
+        return this._callApiMethod('setLanguage', lang);
+    }
+
     async init(payload) {
         return this._callApiMethod('init', payload);
     }
