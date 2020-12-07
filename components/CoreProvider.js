@@ -2,7 +2,7 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import 'antd/dist/antd.css';
 import '../css/untill-base.css';
