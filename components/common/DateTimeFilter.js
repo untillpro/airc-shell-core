@@ -199,6 +199,7 @@ class DateTimeFilter extends Component {
     }
 
     rederPeriods() {
+        const { emptyText } = this.props;
         const periods = this.getPeriods();
 
         if (_.size(periods) > 0) {
@@ -210,21 +211,23 @@ class DateTimeFilter extends Component {
                         onChange={this.handleTabChange}
                     >
                         {periods.map((p) => {
+                            const tabName = _.isFunction(p.name) ? p.name() : p.name;
+
                             if (p.code === CUSTOM_TAB_CODE) {
-                                return <TabPane tab={p.name} key={p.code}></TabPane>
+                                return <TabPane tab={tabName} key={p.code}></TabPane>
                             }
 
                             return (
-                                <TabPane tab={p.name} key={p.code}>
+                                <TabPane tab={tabName} key={p.code}>
                                     {p.periods && _.isArray(p.periods) && p.periods.length > 0 ?
                                         p.periods.map(period => {
                                             return (
                                                 <Button key={`${period.code}`} size={"small"} onClick={() => this.handleSelectPeriod(period)}>
-                                                    {period.name}
+                                                    {_.isFunction(period.name) ? period.name() : period.name}
                                                 </Button>
                                             );
                                         })
-                                        : <Empty description="No periods found" />}
+                                        : <Empty description={emptyText ? emptyText : "No periods"} />}
                                 </TabPane>
                             )
                         })}
@@ -237,9 +240,15 @@ class DateTimeFilter extends Component {
     }
 
     getShortcuts() {
-        return {
-            "now": moment()
-        };
+        const { nowLabel } = this.props;
+
+        if (nowLabel && typeof nowLabel === 'string') {
+            return {
+                [nowLabel]: moment()
+            };
+        }
+
+        return null;
     }
 
     renderPicker() {
@@ -262,6 +271,7 @@ class DateTimeFilter extends Component {
 
     renderCalendars() {
         const { from, to } = this.state;
+        const { fromLabel, toLabel } = this.props
         const mom = moment();
 
         mom.start = from;
@@ -270,14 +280,13 @@ class DateTimeFilter extends Component {
         return (
             <div>
                 <DatetimeRangePicker 
-                    shortcuts={{
-                        "now": moment()
-                    }}
+                    shortcuts={this.getShortcuts()}
                     onChange={this.handleChange}
                     moment={mom} 
-                    fromLabel="From:"
-                    toLabel="To:"
+                    fromLabel={fromLabel ? fromLabel : "From:"}
+                    toLabel={toLabel ? toLabel : "To:"}
                     showTimePicker  
+                    locale={"ru-RU"}
                 />
             </div>
         );

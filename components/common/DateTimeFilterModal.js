@@ -4,7 +4,7 @@
 
 import React, { PureComponent } from 'react';
 import moment from 'moment';
-
+import i18next from 'i18next';
 import { Modal, Button } from 'antd';
 
 import { DateTimeFilter } from './';
@@ -101,7 +101,6 @@ class DateTimeFilterModal extends PureComponent {
 
     render() {
         const { open } = this.state;
-        const { from, to, fromTime, toTime, periods } = this.props;
 
         return (
             <div className="datetime-filter-modal">
@@ -110,7 +109,7 @@ class DateTimeFilterModal extends PureComponent {
                 <Button
                     onClick={this.handleButtonPress}
                 >
-                    Change date
+                    {i18next.t("form.change_date_button_text")}
                 </Button>
 
                 <Modal
@@ -122,15 +121,8 @@ class DateTimeFilterModal extends PureComponent {
                 >
                     <div className="datetime-filter-modal-content">
                         <DateTimeFilter
+                            {...this.props}
                             showCustom
-                            periods={periods}
-
-                            from={from}
-                            to={to}
-                            fromTime={fromTime}
-                            toTime={toTime}
-
-                            onTabChange={null}
                             onChange={this.handleChange}
                         />
                     </div>
