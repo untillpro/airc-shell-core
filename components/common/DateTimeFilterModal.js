@@ -3,16 +3,14 @@
  */
 
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
-import i18next from 'i18next';
+
 import { Modal, Button } from 'antd';
 
 import { DateTimeFilter } from './';
 
-// props:
-// - from
-// - to
-// - format
+const DEFAULT_BUTON_TEXT = "Change date";
 
 class DateTimeFilterModal extends PureComponent {
     constructor(props) {
@@ -100,6 +98,7 @@ class DateTimeFilterModal extends PureComponent {
     }
 
     render() {
+        const { changeButonText } = this.props;
         const { open } = this.state;
 
         return (
@@ -109,7 +108,7 @@ class DateTimeFilterModal extends PureComponent {
                 <Button
                     onClick={this.handleButtonPress}
                 >
-                    {i18next.t("form.change_date_button_text")}
+                    {changeButonText || DEFAULT_BUTON_TEXT}
                 </Button>
 
                 <Modal
@@ -131,5 +130,13 @@ class DateTimeFilterModal extends PureComponent {
         );
     }
 }
+
+DateTimeFilterModal.propTypes = {
+    from: PropTypes.object, 
+    to: PropTypes.object, 
+    format: PropTypes.string,
+    changeButonText: PropTypes.string,
+    onChange: PropTypes.func
+};
 
 export default DateTimeFilterModal;
