@@ -47,11 +47,8 @@ export const getFileSize = (sizeInBytes) => {
 export const translate = (text, section, options ) => {
     let path = "";
 
-    if (section) {
-        path += `${section}.`;
-    }
-
-    path += `${text}`;
+    if (section) path += section + '.';
+    path += text;
 
     if (i18next.exists(path)) {
         return i18next.t(path, options);
