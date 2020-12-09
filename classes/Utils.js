@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
+import i18next from 'i18next';
 
 export const getFileSize = (sizeInBytes) => {
     let bytes = parseInt(sizeInBytes, 10);
@@ -42,3 +43,19 @@ export const getFileSize = (sizeInBytes) => {
         formatedFull: `${value} ${unitFull}`
     }
 }
+
+export const translate = (text, section, options ) => {
+    let path = "";
+
+    if (section) {
+        path += `${section}.`;
+    }
+
+    path += `${text}`;
+
+    if (i18next.exists(path)) {
+        return i18next.t(path, options);
+    }
+
+    return text;
+};
