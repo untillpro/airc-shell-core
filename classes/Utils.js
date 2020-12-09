@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
+import _ from 'lodash';
 import i18next from 'i18next';
 
 export const getFileSize = (sizeInBytes) => {
@@ -52,6 +53,8 @@ export const translate = (text, section, options ) => {
 
     if (i18next.exists(path)) {
         return i18next.t(path, options);
+    } else if (_.isObject(options) && _.size(options) > 0) {
+        return i18next.t(text, options);
     }
 
     return text;
