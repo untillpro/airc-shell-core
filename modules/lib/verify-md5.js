@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 var la = require('./la');
 var md5 = require('./md5');
 

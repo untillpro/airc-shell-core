@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 // utility - MD5 computation from
 var md5 = (function md5init() {
 

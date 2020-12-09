@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 var verifyMd5 = require('./verify-md5');
 var la = require('./la');
 var selfAddressed = require('self-addressed');

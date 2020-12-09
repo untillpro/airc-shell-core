@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 var la = require('./la');
 function removeWhiteSpace(src) {
   la(src, 'missing source', src);

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 require('es6-promise').polyfill();
 
 function isIframed() {
