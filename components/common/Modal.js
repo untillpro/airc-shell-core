@@ -3,6 +3,7 @@
  */
 
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Modal as AntdModal } from 'antd';
 import { withStackEvents } from 'stack-events';
 
@@ -18,8 +19,6 @@ class Modal extends PureComponent {
     }
 
     componentDidMount() {
-        console.log("Modal component did mount!");
-
         this.props.pushEvents({
             'keydown': this.handleKey
         })
@@ -33,8 +32,6 @@ class Modal extends PureComponent {
     handleKey(event) {
         const { onCancel } = this.props;
         const { keyCode } = event;
-
-        console.log("Modal clicked: ");
 
         switch (keyCode) {
             case KEY_ESCAPE:
@@ -74,5 +71,13 @@ class Modal extends PureComponent {
         );
     }
 }
+
+Modal.propTypes = {
+    size: PropTypes.string,
+    className: PropTypes.string,
+    pushEvents: PropTypes.func.isRequired,
+    popEvents: PropTypes.func.isRequired,
+    onCancel: PropTypes.func,
+};
 
 export default withStackEvents(Modal);
