@@ -12,6 +12,7 @@
     "keycode-js": "^3.1.0",
     "lodash": "^4.17.15",
     "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.3",
+    "fbjs": "^3.0.0",
     "react-color": "^2.17.3",
     "self-addressed": "^0.3.0",
     "stack-events": "^0.1.17",
