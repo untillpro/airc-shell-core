@@ -59,3 +59,54 @@ export const translate = (text, section, options ) => {
 
     return text;
 };
+
+export const toRadians = (angle) => {
+    return angle * (Math.PI / 180);
+}
+
+
+export const getRotatedSizes = (width, height, angle) => {
+    let am = angle > 180 ? angle - 360 : angle;
+
+    let a = toRadians(am);
+    let bh, bw;
+
+    if (am >= 0) {
+        bh = Math.ceil(Math.abs((width) * Math.sin(a) + (height) * Math.cos(a)));
+        bw = Math.ceil(Math.abs((width) * Math.cos(a) + (height) * Math.sin(a)));
+    } else {
+        bw = Math.ceil(Math.abs(width * Math.cos(a) - height * Math.sin(a)));
+        bh = Math.ceil(Math.abs(width * Math.sin(a) + height * Math.cos(a)));
+    }
+
+    return [bw, bh];
+}
+
+export const getBoundPosition = (x, y, width, height, angle, bounds) => {
+    if (!bounds) return [x, y]; // Clone new bounds
+
+    if (isNum(bounds.right)) x = Math.min(x, bounds.right - width);
+    if (isNum(bounds.bottom)) y = Math.min(y, bounds.bottom - height); // But above left and top limits.
+
+    if (isNum(bounds.left)) x = Math.max(x, bounds.left);
+    if (isNum(bounds.top)) y = Math.max(y, bounds.top);
+
+    return [x, y];
+}
+
+export const isNum = (num) => {
+    return typeof num === 'number' && !isNaN(num);
+}
+
+
+export const mround = (num) => {
+    let f = num % 1;
+
+    if (f <= 0.2) {
+        return Math.floor(num);
+    } else if (f >= 0.8) {
+        return Math.ceil(num);
+    }
+
+    return num;
+}
