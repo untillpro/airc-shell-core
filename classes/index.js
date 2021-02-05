@@ -7,7 +7,16 @@ import SProtBuilder from './SProtBuilder';
 import URemoteAPIGate from './URemoteAPIGate';
 import UShellAPIGate from './UShellAPIGate';
 
-import { getFileSize, translate, toRadians, getRotatedSizes, getBoundPosition, isNum, mround } from './Utils';
+import { 
+    getFileSize, 
+    translate, 
+    toRadians, 
+    getRotatedSizes, 
+    getBoundPosition, 
+    isNum, 
+    mround,
+    getBlobPath
+} from './Utils';
 
 export {
     Logger,
@@ -20,5 +29,6 @@ export {
     getRotatedSizes, 
     getBoundPosition, 
     isNum, 
-    mround
+    mround,
+    getBlobPath
 };

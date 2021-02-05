@@ -44,12 +44,16 @@ class IconButton extends Component {
     icon() {
         const { icon, title } = this.props;
 
-        return (
-            <img 
-                src={icon} 
-                alt={title} 
-            />
-        );
+        if (icon) {
+            if (React.isValidElement(icon)) {
+                return icon;
+            } else if (typeof icon === "string") {
+                return <img src={icon} alt={title} />;
+            }
+        }
+
+        return null;
+        
     }
 
     render() {
@@ -100,5 +104,7 @@ IconButton.propTypes = {
     children: PropTypes.node,
     link:  PropTypes.string
 };
+
+//export * as Icons from '../../const/IconsVariables';
 
 export default IconButton;

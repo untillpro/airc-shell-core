@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
-
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Modal as AntdModal } from 'antd';
@@ -36,10 +35,11 @@ class Modal extends PureComponent {
         switch (keyCode) {
             case KEY_ESCAPE:
                 if (onCancel && typeof onCancel === 'function') {
+                    console.log('handle key: ', event, onCancel);
                     event.preventDefault();
                     event.stopPropagation();
 
-                    onCancel()
+                    onCancel();
                 }
                 
                 return;

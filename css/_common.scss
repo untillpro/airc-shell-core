@@ -17,21 +17,6 @@ body {
     font-size: 12pt;
 }
 
-i {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: "untill-icons" !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 .page-content {
     padding: 20px 0px;
     position: relative;
