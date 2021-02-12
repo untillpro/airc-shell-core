@@ -53,6 +53,7 @@ class Modal extends PureComponent {
         let result = '';
 
         switch (size) {
+            case 'tiny': result = '__tiny'; break;
             case 'small': result = '__small'; break;
             case 'large': result = '__large'; break;
             default: result = '__medium'; break;
