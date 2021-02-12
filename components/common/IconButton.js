@@ -99,7 +99,7 @@ IconButton.propTypes = {
     success: PropTypes.bool,
     warning: PropTypes.bool,
     danger: PropTypes.bool,
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     text:  PropTypes.string,
     children: PropTypes.node,
     link:  PropTypes.string
