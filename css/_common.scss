@@ -124,3 +124,12 @@ body {
     color: #aaa;
     margin-right: 10px;
 }
+
+// preloader
+
+.--preloader-bg-32-32-gray {
+    background-image: url('../images/loader_32_32_gray.gif');
+    background-position: center center;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+}
