@@ -3,8 +3,9 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const FieldError = (props) => {
     const { text } = props;
 
     return (
@@ -13,3 +14,9 @@ export default (props) => {
         </div>
     );
 };
+
+FieldError.propTypes = {
+    text: PropTypes.string
+};
+
+export default FieldError;

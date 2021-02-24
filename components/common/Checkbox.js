@@ -4,4 +4,8 @@
 
 import { Checkbox } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/checkbox/
+*/
+
 export default Checkbox;

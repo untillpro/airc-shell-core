@@ -10,6 +10,10 @@ import {
     KEY_ESCAPE
 } from 'keycode-js';
 
+/*
+    Original component documentation: https://ant.design/components/modal/
+*/
+
 class Modal extends PureComponent {
     constructor() {
         super();

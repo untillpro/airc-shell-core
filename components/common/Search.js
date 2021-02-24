@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
     constructor(props) {
@@ -71,5 +72,10 @@ class Search extends Component {
         );
     }
 }
+
+Search.propTypes = {
+    onChange: PropTypes.func,
+    defaultValue: PropTypes.string
+};
 
 export default Search;

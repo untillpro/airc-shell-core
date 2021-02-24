@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Tip extends Component {
     constructor() {
@@ -80,5 +81,10 @@ class Tip extends Component {
         );
     }
 }
+
+Tip.propTypes = {
+    text: PropTypes.string,
+    opened: PropTypes.bool,
+};
 
 export default Tip;

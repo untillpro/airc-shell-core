@@ -4,7 +4,7 @@
 
 import _ from 'lodash';
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import SectionItem from './SectionItem';
 
 class Sections extends Component {
@@ -56,5 +56,12 @@ class Sections extends Component {
         );
     }
 }
+
+Sections.propTypes = {
+    onClick: PropTypes.func,
+    renderItem: PropTypes.func, 
+    data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]), 
+    vertical: PropTypes.bool,
+};
 
 export default Sections;

@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default (props) => {
+const NoImage = () => {
     return (
         <div className="untill-base-no-image"></div>
     );
 }
+
+export default NoImage;

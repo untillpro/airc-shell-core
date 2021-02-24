@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 class ConfirmModal extends Component {
@@ -90,5 +91,15 @@ class ConfirmModal extends Component {
         );
     }
 }
+
+ConfirmModal.propTypes = {
+    header: PropTypes.string,
+    text: PropTypes.string,
+    confirmText: PropTypes.string,
+    rejectText: PropTypes.string,
+    onConfirm: PropTypes.func,
+    onReject: PropTypes.func,
+    onClose: PropTypes.func
+};
 
 export default ConfirmModal;

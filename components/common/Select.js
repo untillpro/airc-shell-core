@@ -4,4 +4,8 @@
 
 import { Select } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/select/
+*/
+
 export default Select;

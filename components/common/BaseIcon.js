@@ -3,11 +3,18 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const BaseIcon = (props) => {
     if (props.icon) {
         return <i className={props.icon} />
     }
 
     return null;
 };
+
+BaseIcon.propTypes = {
+    icon: PropTypes.string.isRequired
+};
+
+export default BaseIcon;

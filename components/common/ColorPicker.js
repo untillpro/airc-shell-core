@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
     BlockPicker,
@@ -67,5 +68,11 @@ class ColorPicker extends Component {
     }
 };
 
+ColorPicker.propTypes = {
+    onChange: PropTypes.func,
+    type: PropTypes.string,
+    input: PropTypes.object,
+    value: PropTypes.string
+};
 
 export default ColorPicker;

@@ -4,4 +4,8 @@
 
 import { Dropdown } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/dropdown/
+*/
+
 export default Dropdown;

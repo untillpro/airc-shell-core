@@ -3,10 +3,11 @@
  */
 
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { InputNumber } from 'antd';
 
 /*
-    Documentation: https://ant.design/components/input-number/
+    Original component documentation: https://ant.design/components/input-number/
 */
 
 class NumberInput extends PureComponent {
@@ -31,5 +32,10 @@ class NumberInput extends PureComponent {
         );
     }
 }
+
+NumberInput.propTypes = {
+    onChange: PropTypes.func,
+    value: PropTypes.number
+};
 
 export default NumberInput;

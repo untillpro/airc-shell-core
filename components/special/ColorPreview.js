@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import conv from 'color-shorthand-hex-to-six-digit';
 
 const ColorPreview = (props) => {
@@ -30,6 +31,12 @@ const ColorPreview = (props) => {
         </div>
             
     );
+};
+
+ColorPreview.propTypes = {
+    showValue: PropTypes.bool,
+    square: PropTypes.bool,
+    color: PropTypes.string,
 };
 
 export default ColorPreview

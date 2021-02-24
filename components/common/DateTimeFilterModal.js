@@ -5,10 +5,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-
-import { Modal, Button } from 'antd';
-
-import { DateTimeFilter } from './';
+import { Modal, Button, DateTimeFilter } from './';
 
 const DEFAULT_BUTON_TEXT = "Change date";
 

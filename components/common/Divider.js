@@ -4,4 +4,8 @@
 
 import { Divider } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/divider/
+*/
+
 export default Divider;

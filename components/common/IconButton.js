@@ -99,10 +99,12 @@ IconButton.propTypes = {
     success: PropTypes.bool,
     warning: PropTypes.bool,
     danger: PropTypes.bool,
+    ghost: PropTypes.bool,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     text:  PropTypes.string,
     children: PropTypes.node,
-    link:  PropTypes.string
+    link:  PropTypes.string,
+    size: PropTypes.string,
 };
 
 //export * as Icons from '../../const/IconsVariables';

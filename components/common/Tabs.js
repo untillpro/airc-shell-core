@@ -4,4 +4,8 @@
 
 import { Tabs } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/tabs/
+*/
+
 export default Tabs;

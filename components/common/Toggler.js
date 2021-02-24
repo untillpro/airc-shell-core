@@ -6,6 +6,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/switch/
+*/
+
 class Toggler extends Component {
     constructor() {
         super();
@@ -58,6 +62,7 @@ Toggler.propTypes = {
     right: PropTypes.bool,
     checked: PropTypes.bool,
     label: PropTypes.string,
+    size: PropTypes.string,
     onChange: PropTypes.func
 };
 
