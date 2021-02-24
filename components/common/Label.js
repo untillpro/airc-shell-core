@@ -77,7 +77,10 @@ class Label extends Component {
 Label.propTypes = {
     text: PropTypes.string, 
     tip: PropTypes.node, 
-    error: PropTypes.bool
+    error: PropTypes.bool,
+    showError: PropTypes.bool,
+    errorText: PropTypes.string,
+    right: PropTypes.bool
 };
 
 export default Label;

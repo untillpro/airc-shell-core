@@ -12,6 +12,7 @@
     "keycode-js": "^3.1.0",
     "lodash": "^4.17.15",
     "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.3",
+    "fbjs": "^3.0.0",
     "react-color": "^2.17.3",
     "self-addressed": "^0.3.0",
     "stack-events": "^0.1.17",
@@ -21,6 +22,7 @@
     "iframe-api": "^0.10.0",
     "prop-types": "^15.7.2",
     "color-shorthand-hex-to-six-digit": "^2.10.58",
-    "voca": "^1.4.0"
+    "voca": "^1.4.0",
+    "node-sass": "^4.14.1"
   }
 }

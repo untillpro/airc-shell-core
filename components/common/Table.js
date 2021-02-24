@@ -4,6 +4,10 @@
 
 import ReactTable from 'react-table';
 
+/*
+    Original component documentation: https://react-table.tanstack.com/
+*/
+
 class Table extends ReactTable {
     componentDidUpdate(newProps, newState) {
         const { onTableDataUpdate } = this.props;

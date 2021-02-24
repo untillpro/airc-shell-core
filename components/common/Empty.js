@@ -4,4 +4,8 @@
 
 import { Empty } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/empty/
+*/
+
 export default Empty;

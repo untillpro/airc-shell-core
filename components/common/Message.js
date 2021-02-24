@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { 
     InfoCircleFilled,
     CheckCircleFilled,
@@ -86,5 +86,12 @@ class Message extends Component {
         );
     }
 }
+
+Message.propTypes = {
+    header: PropTypes.node,
+    footer: PropTypes.node,
+    children: PropTypes.node.isRequired,
+    type: PropTypes.string,
+};
 
 export default Message;

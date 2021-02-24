@@ -93,10 +93,12 @@ StyledButton.propTypes = {
     success: PropTypes.bool,
     warning: PropTypes.bool,
     danger: PropTypes.bool,
+    white: PropTypes.bool,
     icon: PropTypes.string,
     text:  PropTypes.string,
     children: PropTypes.node,
-    link:  PropTypes.string
+    link:  PropTypes.string,
+    iconAlign: PropTypes.string,
 };
 
 export default StyledButton;

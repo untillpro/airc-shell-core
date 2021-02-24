@@ -4,4 +4,8 @@
 
 import { Input } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/input/
+*/
+
 export default Input;

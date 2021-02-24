@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import blacklist from 'blacklist';
 
-import { Input } from 'antd';
+import { Input } from './';
 
 class TextInput extends Component {
     constructor() {
@@ -59,8 +59,13 @@ class TextInput extends Component {
 TextInput.propTypes = {
     tip: PropTypes.node,
     error: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     type: PropTypes.string,
-    input: PropTypes.object
+    input: PropTypes.object,
+    maxLength: PropTypes.number,
+    input: PropTypes.object,
+    onChange: PropTypes.func,
+    value: PropTypes.string
 };
 
 export default TextInput;

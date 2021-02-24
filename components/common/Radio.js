@@ -4,4 +4,8 @@
 
 import { Radio } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/radio/
+*/
+
 export default Radio;

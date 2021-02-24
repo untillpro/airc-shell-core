@@ -4,6 +4,7 @@
 
 import _ from 'lodash';
 import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { InputNumber, Modal, Button, Avatar } from 'antd';
 import ReactCrop from "react-image-crop";
 
@@ -92,7 +93,7 @@ class ImageSelector extends PureComponent {
         });
     };
 
-    _onCropChange = (crop) => {
+    _onCropChange(crop) {
         this.setState({ crop });
     };
 
@@ -485,5 +486,14 @@ class ImageSelector extends PureComponent {
         );
     }
 }
+
+ImageSelector.propTypes = {
+    value: PropTypes.string,
+    previewSize: PropTypes.number,
+    onChange: PropTypes.func,
+    onError: PropTypes.func,
+    maxImageSize: PropTypes.number,
+    disabled: true
+};
 
 export default ImageSelector;

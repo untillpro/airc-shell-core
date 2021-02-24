@@ -4,4 +4,8 @@
 
 import { InputNumber } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/input-number/
+*/
+
 export default InputNumber;

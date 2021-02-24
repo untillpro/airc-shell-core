@@ -40,6 +40,11 @@
     margin-left: 12px;
 }
 
+.ant-modal.__tiny {
+    width: 90% !important;
+    max-width: 720px;
+}
+
 .ant-modal.__small {
     width: 50% !important;
 }

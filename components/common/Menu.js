@@ -4,4 +4,8 @@
 
 import { Menu } from 'antd';
 
+/*
+    Original component documentation: https://ant.design/components/menu/
+*/
+
 export default Menu;

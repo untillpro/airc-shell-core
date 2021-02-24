@@ -4,6 +4,7 @@
 
 import _ from 'lodash';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Tabs, DatePicker, Button, Empty } from 'antd';
 import { DatetimeRangePicker } from 'rc-datetime-picker';
 import moment from 'moment';
@@ -331,5 +332,26 @@ class DateTimeFilter extends Component {
         );
     }
 }
+
+DateTimeFilter.propTypes = {
+    from: PropTypes.number,
+    to: PropTypes.number,
+    unix: PropTypes.bool,
+    showCustom: PropTypes.bool,
+    fromTime: PropTypes.object,
+    toTime: PropTypes.object,
+    periods: PropTypes.arrayOf(PropTypes.object),
+    customTitle: PropTypes.string,
+    emptyText: PropTypes.string,
+    nowLabel: PropTypes.string,
+    fromLabel: PropTypes.string,
+    toLabel: PropTypes.string,
+    error: PropTypes.bool,
+    errorMessage: PropTypes.string,
+    debug: PropTypes.bool,
+    onChange: PropTypes.func,
+    onTabChange: PropTypes.func,
+    onPeriodSelected: PropTypes.func,
+};
 
 export default DateTimeFilter;

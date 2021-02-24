@@ -40,7 +40,9 @@ import Menu from './Menu';
 import ImageSelector from './ImageSelector';
 import Spin from './Spin';
 import Input from './Input';
+import Icon from './Icon';
 import Tabs from './Tabs';
+import NoImage from './NoImage';
 
 import FieldError from './FieldError';
 import BaseIcon from './BaseIcon';
@@ -77,6 +79,7 @@ export {
     Label,
     Tip,
     Input,
+    Icon,
     Checkbox,
     Select,
     ColorPicker,
@@ -86,6 +89,7 @@ export {
     ImageSelector,
     Spin,
     Tabs,
+    NoImage,
 
     FieldError,
     BaseIcon,

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
-
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Modal as AntdModal } from 'antd';
@@ -10,6 +9,10 @@ import { withStackEvents } from 'stack-events';
 import {
     KEY_ESCAPE
 } from 'keycode-js';
+
+/*
+    Original component documentation: https://ant.design/components/modal/
+*/
 
 class Modal extends PureComponent {
     constructor() {
@@ -36,10 +39,11 @@ class Modal extends PureComponent {
         switch (keyCode) {
             case KEY_ESCAPE:
                 if (onCancel && typeof onCancel === 'function') {
+                    console.log('handle key: ', event, onCancel);
                     event.preventDefault();
                     event.stopPropagation();
 
-                    onCancel()
+                    onCancel();
                 }
                 
                 return;
@@ -53,6 +57,7 @@ class Modal extends PureComponent {
         let result = '';
 
         switch (size) {
+            case 'tiny': result = '__tiny'; break;
             case 'small': result = '__small'; break;
             case 'large': result = '__large'; break;
             default: result = '__medium'; break;

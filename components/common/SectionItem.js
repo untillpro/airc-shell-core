@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SectionItem extends Component {
     render() {
@@ -18,5 +19,13 @@ class SectionItem extends Component {
         );
     }
 }
+
+SectionItem.propTypes = {
+    active: PropTypes.bool, 
+    text: PropTypes.string, 
+    children: PropTypes.node, 
+    onClick: PropTypes.func, 
+    error: PropTypes.bool
+};
 
 export default SectionItem;
