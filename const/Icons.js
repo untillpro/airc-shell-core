@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 export const ICON_SPINNER11 = "icon-spinner11"
 export const ICON_SEARCH = "icon-search"
 export const ICON_ZOOM_IN = "icon-zoom-in"
