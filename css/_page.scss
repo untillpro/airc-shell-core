@@ -37,9 +37,21 @@
 
 /* section page */
 
+.loading-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+}
+
 .page-section {
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .page-section-navigation {
@@ -126,4 +138,60 @@
 
 .page-section-field.span-6 {
     grid-column: span 6;
+}
+
+/*********/
+
+ .fade-overlay-enter {
+    opacity: 0;
+}
+.fade-overlay-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.fade-overlay-exit {
+    opacity: 1;
+}
+.fade-overlay-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+
+/***************/
+
+.loading-overlay {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+}
+.loading-overlay > div {
+    position: absolute;
+    display: block;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.6);
+    -webkit-transform: translateY(-52%);
+    transform: translateY(-52%);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.loading-overlay._active {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: all;
+}
+.loading-overlay._active > div {
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
 }
