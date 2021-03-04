@@ -86,12 +86,16 @@ class DateTimeFilter extends Component {
         const { fromTime, toTime } = this.props;
         let from, to = null;
 
-        if (fromTime) {
+        if (fromTime && (_.isString(fromTime) || _.isNumber(fromTime))) {
             from = moment(fromTime);
+        } else if (moment.isMoment(fromTime)) {
+            from = fromTime;
         }
 
-        if (toTime) {
+        if (toTime && (_.isString(toTime) || _.isNumber(toTime))) {
             to = moment(toTime);
+        } else if (moment.isMoment(toTime)) {
+            to = toTime;
         }
 
         return {
@@ -278,6 +282,7 @@ class DateTimeFilter extends Component {
         mom.start = from;
         mom.end = to;
 
+        console.log('render calendars: ', mom);
         return (
             <div>
                 <DatetimeRangePicker 
@@ -286,8 +291,7 @@ class DateTimeFilter extends Component {
                     moment={mom} 
                     fromLabel={fromLabel ? fromLabel : "From:"}
                     toLabel={toLabel ? toLabel : "To:"}
-                    showTimePicker  
-                    locale={"ru-RU"}
+                    showTimePicker
                 />
             </div>
         );
@@ -338,8 +342,8 @@ DateTimeFilter.propTypes = {
     to: PropTypes.number,
     unix: PropTypes.bool,
     showCustom: PropTypes.bool,
-    fromTime: PropTypes.object,
-    toTime: PropTypes.object,
+    fromTime: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.string]),
+    toTime: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.string]),
     periods: PropTypes.arrayOf(PropTypes.object),
     customTitle: PropTypes.string,
     emptyText: PropTypes.string,
