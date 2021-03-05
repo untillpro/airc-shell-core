@@ -63,7 +63,6 @@ TextInput.propTypes = {
     type: PropTypes.string,
     input: PropTypes.object,
     maxLength: PropTypes.number,
-    input: PropTypes.object,
     onChange: PropTypes.func,
     value: PropTypes.string
 };

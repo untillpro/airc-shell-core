@@ -9,7 +9,7 @@ import 'antd/dist/antd.css';
 import '../css/untill-base.scss';
 import '../css/antd_custom.scss';
 
-class CoreProvider extends Component {
+export class CoreProvider extends Component {
     shouldComponentUpdate() {
         return false;
     }
@@ -22,5 +22,3 @@ class CoreProvider extends Component {
 CoreProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
-
-export default CoreProvider;
