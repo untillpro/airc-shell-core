@@ -7,20 +7,27 @@ import Logger from './Logger';
 import iframeApi from '../modules/iframe-api';
 
 export default class UShellAPIGate {
-    constructor(pluginApi) {
+    constructor(pluginApi, pluginName) {
         this.shellApi = null;
         this.pluginApi = pluginApi || {};
+        this.pluginName = pluginName || '';
 
-        iframeApi(this.pluginApi)
-            .then((api) => {
-                this.shellApi = api;
+        this.onApiReceived = this.onApiReceived.bind(this);
+        this.onError = this.onError.bind(this);
 
-                if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
-                    api.moduleLoaded();
-                }
-            }, (err) => {
-                Logger.error(err, 'UShellAPIGate error', "UShellAPIGate.init()");
-            });
+        iframeApi(this.pluginApi, this.onApiReceived, this.onError, `Plugin "${this.pluginName}"`);
+    }
+
+    onApiReceived(api) {
+        this.shellApi = api;
+
+        if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
+            api.moduleLoaded();
+        }
+    }
+
+    onError(err) {
+        Logger.error(err, 'UShellAPIGate error', "UShellAPIGate.init()");
     }
 
     async do(queueId, path, params, method = 'get') {
