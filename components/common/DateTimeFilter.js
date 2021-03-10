@@ -282,7 +282,6 @@ class DateTimeFilter extends Component {
         mom.start = from;
         mom.end = to;
 
-        console.log('render calendars: ', mom);
         return (
             <div>
                 <DatetimeRangePicker 
