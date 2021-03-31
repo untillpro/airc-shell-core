@@ -5,7 +5,6 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.8.4",
-    "async": "^3.2.0",
     "blacklist": "^1.1.4",
     "classnames": "^2.2.6",
     "color-shorthand-hex-to-six-digit": "^2.10.58",
