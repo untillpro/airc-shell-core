@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 (function (f) {
     if (typeof exports === "object" && typeof module !== "undefined") {
         module.exports = f()
