@@ -39,7 +39,6 @@ class Modal extends PureComponent {
         switch (keyCode) {
             case KEY_ESCAPE:
                 if (onCancel && typeof onCancel === 'function') {
-                    console.log('handle key: ', event, onCancel);
                     event.preventDefault();
                     event.stopPropagation();
 
