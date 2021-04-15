@@ -130,7 +130,9 @@ export const nodeToPicture = async (node, maxWidth, maxheight) => {
     return new Promise((resolve, reject) => {
         return html2canvas(node, {
             letterRendering: 1,
-            useCORS: true
+            useCORS: true,
+            scrollX: 0,
+            scrollY: -window.scrollY
         })
             .then((canvas) => {
                 const { width, height } = canvas;
