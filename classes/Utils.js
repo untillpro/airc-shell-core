@@ -3,6 +3,7 @@
  */
 import _ from 'lodash';
 import i18next from 'i18next';
+import html2canvas from 'html2canvas';
 
 export const getFileSize = (sizeInBytes) => {
     let bytes = parseInt(sizeInBytes, 10);
@@ -114,3 +115,55 @@ export const mround = (num) => {
 export const getBlobPath = (num) => {
     return `https://badrequest.ru/tests/uploader/read.php?fileId=${num}`;
 }
+
+export const randomString = (length = 10) => {
+    return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, length);
+}
+
+/**
+ * Return: picture blob
+ * Throws: Error if something go wrong or server returns error
+ * 
+ */
+
+export const nodeToPicture = async (node, maxWidth, maxheight) => {
+    return new Promise((resolve, reject) => {
+        return html2canvas(node, {
+            letterRendering: 1,
+            useCORS: true
+        })
+            .then((canvas) => {
+                const { width, height } = canvas;
+                let d, tWidth, tHeight = 0;
+
+                console.log("initial convas size: ", width, height);
+
+                if (width >= height) {
+                    d = maxWidth / width;
+                } else {
+                    d = maxheight / height;
+                }
+
+                tWidth = width * d;
+                tHeight = height * d;
+
+                var resizedCanvas = document.createElement("canvas");
+                var resizedContext = resizedCanvas.getContext("2d");
+
+                resizedCanvas.height = tHeight;
+                resizedCanvas.width = tWidth;
+
+                console.log("result canvas size: ", tWidth, tHeight);
+                
+                resizedContext.drawImage(canvas, 0, 0, tWidth, tHeight);
+
+                console.log(`canvas sizes: [${resizedCanvas.width}x${resizedCanvas.height}]`);
+
+                return resizedCanvas.toBlob((blob) => {
+                    resolve(blob);
+                }, 'image/png');
+            }).catch((error) => {
+                reject(error);
+            });
+    });
+};
