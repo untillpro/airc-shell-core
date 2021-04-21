@@ -4,7 +4,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import conv from 'color-shorthand-hex-to-six-digit';
+import { conv } from 'color-shorthand-hex-to-six-digit';
 
 const ColorPreview = (props) => {
     return (

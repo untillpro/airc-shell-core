@@ -7,7 +7,7 @@
     "antd": "^4.15.0",
     "blacklist": "^1.1.4",
     "classnames": "^2.3.1",
-    "color-shorthand-hex-to-six-digit": "^3.0.14",
+    "color-shorthand-hex-to-six-digit": "^3.0.16",
     "es6-promise": "^4.2.8",
     "fbjs": "^3.0.0",
     "i18next": "^20.1.0",
