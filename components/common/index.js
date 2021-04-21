@@ -47,6 +47,7 @@ import NoImage from './NoImage';
 import FieldError from './FieldError';
 import BaseIcon from './BaseIcon';
 import Modal from './Modal';
+import Breadcrumbs from './Breadcrumbs';
 
 export {
     Divider,
@@ -94,4 +95,5 @@ export {
     FieldError,
     BaseIcon,
     Modal,
+    Breadcrumbs,
 };
