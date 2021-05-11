@@ -205,6 +205,14 @@
     text-align: center;
 }
 
+.ReactTable .rt-td .table-cell,
+.ReactTable .rt-td .table-editable-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+}
+
 .ReactTable .rt-tbody .rt-td .table-cell .cell-icon {
     opacity: 0.5;
 }
