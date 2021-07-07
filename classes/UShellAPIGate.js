@@ -7,10 +7,11 @@ import Logger from './Logger';
 import iframeApi from '../modules/iframe-api';
 
 export default class UShellAPIGate {
-    constructor(pluginApi, pluginName) {
+    constructor(pluginApi, pluginName, callback) {
         this.shellApi = null;
         this.pluginApi = pluginApi || {};
         this.pluginName = pluginName || '';
+        this.callback = callback;
 
         this.onApiReceived = this.onApiReceived.bind(this);
         this.onError = this.onError.bind(this);
@@ -23,6 +24,10 @@ export default class UShellAPIGate {
 
         if (api && api.moduleLoaded && typeof api.moduleLoaded === 'function') {
             api.moduleLoaded();
+        }
+
+        if (this.callback !== null && typeof this.callback === 'function') {
+            this.callback();
         }
     }
 
