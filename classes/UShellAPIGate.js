@@ -55,6 +55,10 @@ export default class UShellAPIGate {
         return this._callApiMethod('sendInfo', text, descr, lifetime, hideClose);
     }
 
+    async sendLocations(locations = null) {
+        return this._callApiMethod('sendLocations', locations);
+    }
+
     async conf(...args) {
         return this._callApiMethod('conf', ...args);
     }
