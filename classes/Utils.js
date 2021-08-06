@@ -138,8 +138,6 @@ export const nodeToPicture = async (node, maxWidth, maxheight) => {
                 const { width, height } = canvas;
                 let d, tWidth, tHeight = 0;
 
-                console.log("initial convas size: ", width, height);
-
                 if (width >= height) {
                     d = maxWidth / width;
                 } else {
@@ -155,11 +153,7 @@ export const nodeToPicture = async (node, maxWidth, maxheight) => {
                 resizedCanvas.height = tHeight;
                 resizedCanvas.width = tWidth;
 
-                console.log("result canvas size: ", tWidth, tHeight);
-                
                 resizedContext.drawImage(canvas, 0, 0, tWidth, tHeight);
-
-                console.log(`canvas sizes: [${resizedCanvas.width}x${resizedCanvas.height}]`);
 
                 return resizedCanvas.toBlob((blob) => {
                     resolve(blob);
