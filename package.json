@@ -19,7 +19,7 @@
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
-    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.3",
+    "rc-datetime-picker": "git+https://github.com/Yohanson555/rc-datetime-picker.git#v1.8.7",
     "react-color": "^2.19.3",
     "self-addressed": "^0.3.0",
     "stack-events": "^0.1.18",
