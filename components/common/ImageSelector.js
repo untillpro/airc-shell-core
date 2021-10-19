@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { InputNumber, Modal, Button, Avatar } from 'antd';
 import ReactCrop from "react-image-crop";
 
-import { 
+import {
     PlusOutlined,
     DeleteFilled,
     LinkOutlined
@@ -62,7 +62,7 @@ class ImageSelector extends PureComponent {
         if (previewSize && typeof previewSize === 'number')
             state.previewSize = parseInt(previewSize, 10);
 
-        if (_.size(state) > 0) 
+        if (_.size(state) > 0)
             this.setState(state);
     }
 
@@ -163,8 +163,7 @@ class ImageSelector extends PureComponent {
 
                 reader.readAsDataURL(e.target.files[0]);
             } else {
-                const size = getFileSize(maxImageSize);
-                const message = `Image max size exceeded. Available max image size ${size.formated}.`;
+                const message = this._t('Image max size exceeded.');
 
                 if (onError && typeof onError === 'function') {
                     onError(message)
@@ -181,11 +180,11 @@ class ImageSelector extends PureComponent {
 
     _onRemoveButton() {
         confirm({
-            title: 'Delete image?',
-            content: 'Are you sure delete image?',
-            okText: 'Yes',
+            title: this._t('Delete image?'),
+            content: this._t('Are you sure delete image?'),
+            okText: this._t('Yes'),
             okType: 'danger',
-            cancelText: 'No',
+            cancelText: this._t('No'),
             onOk: () => {
                 let changed = false;
 
@@ -251,6 +250,17 @@ class ImageSelector extends PureComponent {
         });
     }
 
+    _t(key) {
+        const { dictionary } = this.props;
+        let res = key;
+
+        if (_.isObject(dictionary) && dictionary[key]) {
+            res = dictionary[key];
+        }
+
+        return res;
+    }
+
     async makeClientCrop(crop) {
         const { imageRef } = this;
 
@@ -299,7 +309,7 @@ class ImageSelector extends PureComponent {
                 onClick={this._onSaveButtonClick.bind(this)}
                 type={somethingChanged ? "primary" : "default"}
             >
-                {somethingChanged ? 'Save' : 'Ok'}
+                {somethingChanged ? this._t('Save') : this._t('Ok')}
             </Button>
         );
 
@@ -370,7 +380,7 @@ class ImageSelector extends PureComponent {
         return (
             <div className="image-selector-sizes-block">
                 <div className="image-selector-sizes-field-container">
-                    <label className="image-selector-sizes-label">Width (px):</label>
+                    <label className="image-selector-sizes-label">{this._t('Width (px):')}</label>
 
                     <InputNumber
                         className="image-selector-sizes-field"
@@ -390,7 +400,7 @@ class ImageSelector extends PureComponent {
                 </div>
 
                 <div className="image-selector-sizes-field-container">
-                    <label className="image-selector-sizes-label">Height (px):</label>
+                    <label className="image-selector-sizes-label">{this._t('Height (px):')}</label>
 
                     <InputNumber
                         className="image-selector-sizes-field"
@@ -430,14 +440,17 @@ class ImageSelector extends PureComponent {
                     onClick={this._onSelectPress.bind(this)}
                     disabled={!!disabled}
                 >
-                    {result ? 'Edit image' : 'Select image'}
+                    {result ?
+                        this._t('Edit image') :
+                        this._t('Select image')
+                    }
                 </Button>
 
                 {this.renderImagePreview(result)}
 
                 <Modal
                     width={800}
-                    title="Select an image"
+                    title={this._t("Select an image")}
                     visible={visible}
                     footer={this.renderFooter()}
                     onCancel={this.closeModal.bind(this)}
@@ -445,7 +458,7 @@ class ImageSelector extends PureComponent {
                     <div className="image-selector-container">
                         <div className="image-selector-left">
                             <div className="image-selector-title">
-                                Upload image file:
+                                {this._t('Upload image file:')}
                             </div>
 
                             <div className="image-selector-add-block">
@@ -493,6 +506,7 @@ ImageSelector.propTypes = {
     onChange: PropTypes.func,
     onError: PropTypes.func,
     maxImageSize: PropTypes.number,
+    dictionary: PropTypes.objectOf(PropTypes.string),
     disabled: true
 };
 
