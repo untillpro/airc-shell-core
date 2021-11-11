@@ -25,12 +25,14 @@ export default class SProtBuilder {
     _buildSection(chunk) {
         if (chunk) {
             if (_.isObject(chunk)) {
-                const { path, elements } = chunk;
+                let { path, elements } = chunk;
 
                 
                 if (!path) {
-                    throw new Error('Each chunk should contain "path" prop');
-                } else if (!_.isArray(path)) {
+                    path = [ 'result' ];
+                } 
+                
+                if (!_.isArray(path)) {
                     throw new Error('"path" prop should be an array of strings');
                 }
 
@@ -44,13 +46,14 @@ export default class SProtBuilder {
                 if (!section || _.size(section) <= 0) {
                     this._makeSection(path);
                     
-                    if (_.isArray(elements)) {
-
-                        _.set(this._result, path, []);
-                    } else {
-                        _.set(this._result, path, {});
-                    }
-                    _.set(this._result, path, elements);
+                    _.set(this._result, path, ...elements);
+                    
+                    // if (_.isArray(elements)) {
+                    //     _.set(this._result, path, []);
+                    // } else {
+                    //     _.set(this._result, path, {});
+                    // }
+                    //_.set(this._result, path, elements);
                 } else {
                     section = _.merge(section, elements);
 
