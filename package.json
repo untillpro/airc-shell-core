@@ -1,10 +1,11 @@
 {
   "name": "airc-shell-core",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "private": false,
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "antd": "^4.16.13",
+    "@ant-design/charts": "^1.1.2",
+    "antd": "^4.9.0",
     "blacklist": "^1.1.4",
     "classnames": "^2.3.1",
     "color-shorthand-hex-to-six-digit": "^3.1.0",
