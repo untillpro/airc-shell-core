@@ -1,6 +1,6 @@
 {
   "name": "airc-shell-core",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "private": false,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -25,6 +25,7 @@
     "react-image-crop": "^8.6.12",
     "react-table": "^6.11.5",
     "self-addressed": "^0.3.0",
-    "stack-events": "^0.1.18"
+    "stack-events": "^0.1.18",
+    "fbjs": "^3.0.1"
   }
 }
