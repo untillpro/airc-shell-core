@@ -2,9 +2,9 @@
  * Copyright (c) 2020-present unTill Pro, Ltd.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default class SProtBuilder {
+class SProtBuilder {
     constructor() {
         this._currentSection = null;
         this._result = null
@@ -46,14 +46,13 @@ export default class SProtBuilder {
                 if (!section || _.size(section) <= 0) {
                     this._makeSection(path);
                     
-                    //_.set(this._result, path, ...elements);
-                    
-                    if (_.isArray(elements)) {
-                        _.set(this._result, path, []);
-                    } else {
-                        _.set(this._result, path, {});
-                    }
                     _.set(this._result, path, elements);
+                    
+                    // if (_.isArray(elements)) {
+                    //     _.set(this._result, path, []);
+                    // } else {
+                    //     _.set(this._result, path, {});
+                    // }
                 } else {
                     section = _.merge(section, elements);
 
@@ -96,3 +95,5 @@ export default class SProtBuilder {
         return this._result;
     }
 }
+
+module.exports = SProtBuilder;
