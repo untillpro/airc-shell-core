@@ -45,14 +45,16 @@ class SProtBuilder {
 
                 if (!section || _.size(section) <= 0) {
                     this._makeSection(path);
-                    
-                    _.set(this._result, path, elements);
-                    
-                    // if (_.isArray(elements)) {
-                    //     _.set(this._result, path, []);
-                    // } else {
-                    //     _.set(this._result, path, {});
-                    // }
+                                        
+                    if (_.isArray(elements)) {
+                        _.set(this._result, path, []);
+                        _.set(this._result, path, ...elements);
+                    } else {
+                        _.set(this._result, path, {});
+                        _.set(this._result, path, elements);
+                    }
+
+                   
                 } else {
                     section = _.merge(section, elements);
 
