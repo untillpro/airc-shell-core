@@ -16,7 +16,7 @@ import {
 
 import "react-image-crop/dist/ReactCrop.css";
 
-import { getFileSize } from '../../classes/Utils';
+//import { getFileSize } from '../../classes/Utils';
 
 const { confirm } = Modal;
 
