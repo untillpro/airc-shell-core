@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020-present unTill Pro, Ltd.
+ */
+
 const SProtBuilder = require("../classes/SProtBuilder");
 
 const testData1 = [
